@@ -20,6 +20,7 @@
 				<ul class="sub">
 					
 					<li><?php echo $this->Html->link("<i class='fa fa-laptop'></i>Countries", array("plugin"=>false,"controller"=>"countries","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>					
+					<li><?php echo $this->Html->link("<i class='fa fa-laptop'></i>Categories", array("plugin"=>false,"controller"=>"categories","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 					<li><?php echo $this->Html->link("<i class='fa fa-laptop'></i>Faqcategories", array("plugin"=>false,"controller"=>"faqcategories","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 				</ul>
 			</li>

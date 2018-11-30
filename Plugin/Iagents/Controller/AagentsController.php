@@ -39,7 +39,7 @@ class AagentsController extends IagentsAppController {
 		$this->Auth->logoutRedirect = array('plugin'=>'iagents','controller' => 'pages','action' => 'homepage','admin'=>false );
 		//$this->layout='agents';
 	//$this->Auth->allow('register','confirm','logout','captcha','agentsdashboard','forgotpassword','resetpassword','changepassword','thankyou');
-		//$this->Auth->allow('initDB');
+
 		$this->set('masterclass','');
 		$this->set('announceclass','');
 		$this->set('aclclass','');
