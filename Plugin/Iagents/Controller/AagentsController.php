@@ -36,7 +36,7 @@ class AagentsController extends IagentsAppController {
 			);
 		$this->Auth->loginAction = array('plugin'=>'iagents','controller' => 'aagents','action' => 'login');      
         $this->Auth->loginRedirect = array('plugin'=>'iagents','controller' => 'aagents','action' => 'dashboard','admin'=>false );  
-		$this->Auth->logoutRedirect = array('plugin'=>'iagents','controller' => 'pages','action' => 'display','admin'=>false );
+		$this->Auth->logoutRedirect = array('plugin'=>'iagents','controller' => 'pages','action' => 'homepage','admin'=>false );
 		//$this->layout='agents';
 	//$this->Auth->allow('register','confirm','logout','captcha','agentsdashboard','forgotpassword','resetpassword','changepassword','thankyou');
 		//$this->Auth->allow('initDB');
