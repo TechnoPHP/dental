@@ -24,6 +24,7 @@
 					<li><?php echo $this->Html->link("<i class='fa fa-laptop'></i>Faqcategories", array("plugin"=>false,"controller"=>"faqcategories","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 				</ul>
 			</li>
+			<li><?php echo $this->Html->link("<i class='fa fa-group'></i>Tasks", array("plugin"=>false,"controller"=>"tasks","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 			<li><?php echo $this->Html->link("<i class='fa fa-group'></i>Admin Groups", array("plugin"=>false,"controller"=>"admingroups","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 			<li><?php echo $this->Html->link("<i class='fa fa-group'></i>User Groups", array("plugin"=>false,"controller"=>"groups","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 			<li class="sub-menu">
