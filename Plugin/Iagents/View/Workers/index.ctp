@@ -1,10 +1,10 @@
-<div class="workers index">
+<div class="">
 	<h2><?php echo __('Workers'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<thead>
+	<table class="table table-striped">
+	<thead class="thead-light">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			
+			<th><?php echo $this->Paginator->sort('aagent'); ?></th>
 			<th><?php echo $this->Paginator->sort('category'); ?></th>
 			<th><?php echo $this->Paginator->sort('firstname'); ?></th>
 			<th><?php echo $this->Paginator->sort('lastname'); ?></th>
