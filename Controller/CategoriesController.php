@@ -84,7 +84,7 @@ class CategoriesController extends AppController {
 			throw new NotFoundException(__('Invalid Category'));
 		}
 		$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
-		$this->set('Category', $this->Category->find('first', $options));
+		$this->set('category', $this->Category->find('first', $options));
 		$this->set('masterclass','active');
 	}
 

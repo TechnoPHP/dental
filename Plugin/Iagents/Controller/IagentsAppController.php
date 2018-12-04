@@ -45,7 +45,8 @@ class IagentsAppController extends AppController {
 				),
 			)
 		);
-		AuthComponent::$sessionKey = 'Auth.Agent';
+		AuthComponent::$sessionKey = 'Auth.Aagent';
+		
 		$this->Auth->loginAction = array('plugin'=>'iagents','controller' => 'aagents','action' => 'login');      
         $this->Auth->loginRedirect = array('plugin'=>'iagents','controller' => 'aagents','action' => 'dashboard','admin'=>false );  
 		$this->Auth->logoutRedirect = array('plugin'=>false,'controller' => 'pages','action'=>'display','admin'=>false );

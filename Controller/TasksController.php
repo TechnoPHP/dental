@@ -13,7 +13,17 @@ class TasksController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator','Flash');
+	
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow();
+		$this->set('masterclass','');
+		$this->set('masterclass','');
+		$this->set('announceclass','');
+		$this->set('aclclass','');
+		$this->set('usersclass','');
+	}
 
 /**
  * index method
@@ -24,7 +34,9 @@ class TasksController extends AppController {
 		$this->Task->recursive = 0;
 		$this->set('tasks', $this->Paginator->paginate());
 	}
-
+	public function admin_index() {
+		$this->index();
+	}
 /**
  * view method
  *
@@ -45,12 +57,12 @@ class TasksController extends AppController {
  *
  * @return void
  */
-	public function add() {
-		if ($this->request->is('post')) {
+	public function create() {
+		if ($this->request->is(array('put','post'))) {
 			$this->Task->create();
 			if ($this->Task->save($this->request->data)) {
 				$this->Flash->success(__('The task has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller'=>'tasks','action' => 'index'));
 			} else {
 				$this->Flash->error(__('The task could not be saved. Please, try again.'));
 			}
@@ -59,6 +71,9 @@ class TasksController extends AppController {
 		$this->set(compact('categories'));
 	}
 
+	public function admin_create() {
+		$this->create();
+	}
 /**
  * edit method
  *
@@ -83,6 +98,10 @@ class TasksController extends AppController {
 		}
 		$categories = $this->Task->Category->find('list');
 		$this->set(compact('categories'));
+	}
+	
+	public function admin_edit($id = null) {
+		$this->edit($id);
 	}
 
 /**
