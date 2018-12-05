@@ -1,12 +1,12 @@
 <?php
-App::uses('AppController', 'Controller');
+App::uses('IagentsAppController', 'Iagents.Controller');
 /**
  * Workers Controller
  *
  * @property Worker $Worker
  * @property PaginatorComponent $Paginator
  */
-class WorkersController extends AppController {
+class WorkersController extends IagentsAppController {
 
 /**
  * Components
@@ -30,7 +30,7 @@ class WorkersController extends AppController {
 		$this->Paginator->settings = array(
 			'Worker'=>array(
 				
-			'fields'=>array('Aagent.id','Aagent.firstname','Worker.id','Worker.firstname','Worker.lastname','Worker.gender','Worker.dateofbirth','Worker.phone','Category.name','Category.id','Worker.modified','Worker.ctcity','Worker.active','Worker.approved'),
+			'fields'=>array('Aagent.id','Aagent.firstname','Worker.id','Worker.firstname','Worker.lastname','Worker.gender','Worker.phone','Category.name','Category.id','Worker.modified','Worker.ctcity','Worker.active','Worker.approved'),
 			'conditions' => array($postcondition),
 			'limit' => 20,
 			'order'=>array('Buynsale.modified'=>'desc'),

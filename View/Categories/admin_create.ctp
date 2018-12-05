@@ -33,10 +33,15 @@
 									<div class="col-md-3">
 										<div class="checkbox">
 											<label>
-											<?php echo $this->Form->checkbox('Category.active',array()); ?>Make it active</label>
+											<?php echo $this->Form->checkbox('Category.active',array()); ?>&nbsp;Make it active</label>
 										</div>
 									</div>
-								
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+											<?php echo $this->Form->checkbox('Category.featured',array()); ?>&nbsp;Make it featured</label>
+										</div>
+									</div>
 									<div class="col-md-3">
 										<div class="form-group">
 										<input name="" type="submit" value="Create" class="btn btn-success" />

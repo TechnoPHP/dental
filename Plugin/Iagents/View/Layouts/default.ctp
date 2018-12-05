@@ -28,33 +28,32 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->script('jquery-2.2.4.min');
-		echo $this->Html->script('bootstrap.min');
-		echo $this->Html->css('bootstrap.min');
-		echo $this->Html->css('Iagents.cake.generic');
-
+		echo $this->Html->script('Iagents.bootstrap.min');
+		echo $this->Html->css('Iagents.bootstrap.min');
+		//echo $this->Html->css('Iagents.cake.generic');
+echo $this->Html->script('Iagents.popper.min');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->element('iagentheader'); ?></h1>
-		</div>
+	
+		<header class="mb-2">
+			<?php echo $this->element('top-navigation'); ?>
+		</header>
 		<div id="content">
 
 			<?php echo $this->Flash->render(); ?>
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="footer">
-			
+		<div id="footer" class="bg-light py-2">
 			<p>
-				<?php echo $cakeVersion; ?>
+				
 			</p>
 		</div>
-	</div>
+	
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

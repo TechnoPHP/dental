@@ -1,10 +1,7 @@
-<style>.video{top:60px} </style>
 <div class="container">
 <div class="row">
-<div class="col-md-3">
-	<nav>
-		<?php echo $this->element('sidebar_dashboard');?>
-	</nav>
+<div class="col-md-3">	
+	<?php echo $this->element('sidebar_dashboard');?>	
 </div>
 <div class="col-md-9">
 	<h4>About <?php echo $currentuser['Aagent']['firstname']; ?>

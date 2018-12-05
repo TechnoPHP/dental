@@ -17,8 +17,13 @@ class AagentsController extends IagentsAppController {
  */
 	public $components = array(
 		'Paginator',
-		'Iagents.Captcha'=>array('field'=>'security_code','model' => 'Aagent','mlabel'=>'Answer simple math:&nbsp;'),
-		);
+		'Flash',
+		'Iagents.Captcha'=>array(
+			'field'=>'security_code',
+			'model' => 'Aagent',
+			'mlabel'=>'Answer simple math:&nbsp;'
+		),
+	);
 		
 	public $helper = array('Js','Paginator','Iagents.Captcha');
 	public $paginate = array('limit' => 15,	'order' => array('Aagent.created' => 'desc'));
@@ -32,8 +37,8 @@ class AagentsController extends IagentsAppController {
 			'Form' => array(
 				'fields' => array('username'=>'email_address','password'=>'password'),
 				'userModel' => 'Aagent',
-				)
-			);
+			)
+		);
 		$this->Auth->loginAction = array('plugin'=>'iagents','controller' => 'aagents','action' => 'login');      
         $this->Auth->loginRedirect = array('plugin'=>'iagents','controller' => 'aagents','action' => 'dashboard','admin'=>false );  
 		$this->Auth->logoutRedirect = array('plugin'=>'iagents','controller' => 'pages','action' => 'homepage','admin'=>false );
@@ -324,10 +329,10 @@ class AagentsController extends IagentsAppController {
  * @return void
  */
 	public function view($id = null) {
-		if (!$this->Agent->exists($id)) {
+		if (!$this->Aagent->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
-		$options = array('conditions' => array('Aagent.' . $this->Agent->primaryKey => $id));
+		$options = array('conditions' => array('Aagent.' . $this->Aagent->primaryKey => $id));
 		$this->set('agent', $this->Aagent->find('first', $options));
 	}
 	function dashboard($userid=null){

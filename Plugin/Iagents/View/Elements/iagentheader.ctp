@@ -15,7 +15,7 @@
 			<li><?php echo $this->Html->link("Sign up",array('plugin'=>'iagents','controller'=>'aagents','action'=>'register','admin'=>false));?></li>
 			<li><?php echo $this->Html->link("Sign in",array('plugin'=>'iagents','controller'=>'aagents','action'=>'login','admin'=>false));?></li>
 			<?php } ?>	
-			<li><?php echo $this->Html->link("Workers",array('plugin'=>'','controller'=>'workers','action'=>'index','admin'=>false));?></li>
+			<li><?php echo $this->Html->link("Workers",array('plugin'=>'iagents','controller'=>'workers','action'=>'index','admin'=>false));?></li>
 		</ul>
 	</div>
 </nav>

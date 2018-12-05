@@ -1,11 +1,12 @@
+<div class="container">
 <div class="row">
-	<div class="col-md-12">
-		<div class="row">
-			<div class="col-md-6">
+	
+			<div class="col-md-9">
 				<?php echo $this->Form->create('Worker', array("url"=>array("controller"=>"workers",'action'=>'create','admin'=>false)));	?>
-				<section class="panel">
-					<span class="panel-heading">Worker's personal information</span>
-					<div class="panel-body">
+				<section class="card">
+					<h5 class="card-header">Worker's personal information</h5>
+					<div class="card-body">
+					
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
@@ -64,9 +65,10 @@
 				</section>
 				
 					
-				<section class="panel">
-					<span class="panel-heading">Worker's Current Address</span>
-					<div class="panel-body">				
+				<section class="card mt-2">
+					<h5 class="card-header">Worker's Current Address</h5>
+					<div class="card-body">
+					
 						<div class="row">	
 							<div class="col-md-6">
 								<div class="form-group">
@@ -115,9 +117,10 @@
 					</div> <!--pannel-body -->
 				</section>
 					
-				<section class="panel">
-					<span class="panel-heading">Worker's Permenent Address<span class="pull-right"><?php echo $this->Form->checkbox("Worker.sameasct"); ?>&nbsp;Same as current address</span></span>
-					<div class="panel-body">
+				<section class="card mt-2">
+					<h5 class="card-header">Worker's Permenent Address<small class="float-right mt-1"><?php echo $this->Form->checkbox("Worker.sameasct"); ?>&nbsp;Same as current address</small></h5>
+					<div class="card-body">
+					
 						<div class="row">	
 							<div class="col-md-6">
 								<div class="form-group">
@@ -165,9 +168,9 @@
 						</div>
 					</div> <!--pannel-body -->
 				</section>
-				<section class="panel">
-					<span class="panel-heading">Remarks</span>
-					<div class="panel-body">
+				<section class="card mt-2">
+					<h5 class="card-header">Remarks</h5>
+					<div class="card-body">
 						<div class="row">	
 							<div class="col-md-12">
 								<div class="form-group">
@@ -178,27 +181,44 @@
 						</div>
 					</div><!--pannel-body -->
 				</section>
+				<section class="mt-2">
 					<div class="row">
-						<div class="col-md-3">
-							<div class="checkbox">
+						<div class="col-lg-4">
+							<div class="checkbox btn btn-block btn-outline-info">
 								<label>
 								<?php echo $this->Form->checkbox('Worker.active',array()); ?>&nbsp;Make it active</label>
 							</div>
 						</div>
 					
-						<div class="col-md-3">
+						<div class="col-lg-8 text-right">
 							<div class="form-group">
 							<input name="" type="submit" value="Create worker profile" class="btn btn-success" />
 						</div>
 					</div>
-					
+				</section>	
 				<?php echo $this->Form->end(); ?>
+			
+			</div><!--col-md-6 -->
+			<div class="col-md-3">
+				<div class="">
+				<h3><?php echo __('Actions'); ?></h3>
+				
+					<?php echo $this->Html->link(__('New Worker'), array('action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
+					<?php echo $this->Html->link(__('List Aagents'), array('controller' => 'aagents', 'action' => 'index'),array('class'=>'btn btn-block btn-outline-info')); ?>
+					<?php echo $this->Html->link(__('New Aagent'), array('controller' => 'aagents', 'action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
+					<?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index'),array('class'=>'btn btn-block btn-outline-info')); ?>
+					<?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
+					<?php echo $this->Html->link(__('List Admins'), array('controller' => 'admins', 'action' => 'index'),array('class'=>'btn btn-block btn-outline-info')); ?>
+					
+					<?php echo $this->Html->link(__('New Admin'), array('controller' => 'admins', 'action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
+					<?php echo $this->Html->link(__('List Workerprofiles'), array('controller' => 'workerprofiles', 'action' => 'index'),array('class'=>'btn btn-block btn-outline-info')); ?>
+					<?php echo $this->Html->link(__('New Workerprofile'), array('controller' => 'workerprofiles', 'action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
+					<?php echo $this->Html->link(__('List Workerreferences'), array('controller' => 'workerreferences', 'action' => 'index'),array('class'=>'btn btn-block btn-outline-info')); ?>
+					<?php echo $this->Html->link(__('New Workerreference'), array('controller' => 'workerreferences', 'action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
+				
 				</div>
 			</div><!--col-md-6 -->
-			<div class="col-md-6">	
-			</div>
-		</div>
-	</div>
+		
 </div>
 <script>
 $(document).ready(function(){
@@ -216,20 +236,4 @@ $(document).ready(function(){
     });
 });
 </script>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Workers'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Aagents'), array('controller' => 'aagents', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Aagent'), array('controller' => 'aagents', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Admins'), array('controller' => 'admins', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Admin'), array('controller' => 'admins', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Workerprofiles'), array('controller' => 'workerprofiles', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Workerprofile'), array('controller' => 'workerprofiles', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Workerreferences'), array('controller' => 'workerreferences', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Workerreference'), array('controller' => 'workerreferences', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+</div><!--container -->

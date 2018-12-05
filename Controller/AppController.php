@@ -66,6 +66,7 @@ class AppController extends Controller {
         }
 		
 		$this->_list_countries();
+		$this->_list_categories();
 	}
 	
 	public function isAuthorized($user = null) {
@@ -81,5 +82,32 @@ class AppController extends Controller {
 		$appcountries = Set::combine($countries, '{n}.Country.id','{n}.Country.name');
 		//pr($appcountries);exit;
 		$this->set('appcountries', $appcountries);
+	}
+	protected function _featured_categories(){
+	/**/
+		App::import('Model','Category');
+  		$category = new Category();
+		//$country->unBindModel(array("hasMany" => array("Region")));
+		$appfcategories = $category->find("list",array('fields'=>array('Category.name','Category.id'),'conditions'=>array("Category.active"=>1,"Category.featured"=>1)));
+		
+		//pr($appfcategories);exit;
+		$this->set('appfcategories', $appfcategories);
+	}
+	protected function _list_categories(){
+	/*used in header menu to show services list 3-4 others in the More tab*/
+		App::import('Model','Category');
+  		$category = new Category();
+		//$country->unBindModel(array("hasMany" => array("Region")));
+		$appcategories = $category->find("list",
+			array(
+				//'fields'=>array('Category.name','Category.id'),
+				'conditions'=>array("Category.active"=>1),
+				'order'=>array('Category.featured'=>'desc','Category.name'),//featured =1 and alphabetic sort
+				//'limit'=>2
+			)
+		);
+		$appcountries = Set::combine($appcategories, '{n}.Category.id','{n}.Category.name');
+		//pr($appcategories);exit;
+		$this->set('appcategories', $appcategories);
 	}
 }

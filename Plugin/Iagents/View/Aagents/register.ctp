@@ -3,12 +3,9 @@
 	<div class="row">
 		<div class="col-md-7">
 			<div class=""><?php echo $this->Session->flash();?></div>
-			<div class="panel">
-				<div class="panel-heading">
-					<div class="">Sign up</div>
-					<hr>
-				</div>
-				<div class="panel-body">
+			<div class="card">
+				<h3 class="card-header">Sign up</h3>
+				<div class="card-body">
 					<div class="row">
 						<div class="col-md-12 form-group">
 							<lable><strong>About Agency</strong>&nbsp;&nbsp;<small>Provide information about your agency</small></lable>
@@ -91,11 +88,11 @@
 									<div class="col-md-12 alert alert-info terms">
 										By creating an account you confirm the acceptance of <?php echo $this->Html->link('Terms of Use',array("plugin"=>false,"controller"=>"pages","action"=>"terms"),array("class"=>"alert-link"));?>&nbsp;and&nbsp;<?php echo $this->Html->link('Privacy Policy',array("plugin"=>false,"controller"=>"pages","action"=>"privacypolicies"),array("class"=>"alert-link"));?>.
 									</div>
-								</div>			
-								<div class="form-group">
+								</div>
+								<div class="row">								
 									<div class="">
-										<div class="col-sm-6 col-sm-offset-3">
-											<input type="submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+										<div class="col-md-12">
+											<input type="submit" tabindex="4" class="form-group btn btn-block btn-outline-info" value="Register Now">
 										</div>
 									</div>
 								</div>

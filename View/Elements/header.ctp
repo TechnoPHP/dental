@@ -62,12 +62,22 @@
 					<div class="nav">
 						<ul class="sf-menu" id="menu">
 							<li class="current-menu-item"><?php echo $this->Html->link("Home",array('plugin'=>false,'controller'=>'pages','action'=>'display','admin'=>false));?></li>
-							<li><?php echo $this->Html->link("Meet the Doctor",array('plugin'=>false,'controller'=>'pages','action'=>'meetdoctor','admin'=>false));?></li>
-							<li><a href="#">For Patient</a>
+							
+							<?php 
+							$i=1;	$more=array();
+							foreach($appcategories as $fkey=>$fcategory){
+								if($i>3){ $more[$fkey]=$fcategory;}else{ ?>
+								<li><?php echo $this->Html->link($fcategory,array('plugin'=>'','controller'=>'categories','action'=>'view/'.$fkey,'admin'=>false));?></li>
+							<?php }
+							
+							$i++;} ?>
+							
+							<li><a href="#">More</a>
 								<ul>
-									<li><?php echo $this->Html->link("Admins",array('plugin'=>false,'controller'=>'admins','action'=>'login','admin'=>true));?></li>
-									<li><?php echo $this->Html->link("Technologies",array('plugin'=>"iagents",'controller'=>'pages','action'=>'technologies','admin'=>false));?></li>
-									<li><a href="doctors.html">FAQs</a></li>
+								<?php foreach($more as $key=>$category){?>
+									<li><?php echo $this->Html->link($category,array('plugin'=>'','controller'=>'categories','action'=>'view/'.$key,'admin'=>false));?></li>
+								<?php } ?>
+									
 								</ul>									
 							</li>
 							<li><a href="#">For Agents</a>
@@ -76,7 +86,7 @@
 									<li><a href="#">Referal form</a></li>
 								</ul>									
 							</li>
-							<li><a href="#">Treatments</a>
+							<li><?php echo $this->Html->link("Admins",array('plugin'=>false,'controller'=>'admins','action'=>'login','admin'=>true));?></li>
 							<li><?php echo $this->Html->link("Inquiries",array('plugin'=>'appointments','controller'=>'appointments','action'=>'index','admin'=>false));?>
 							</li>
 						</ul>

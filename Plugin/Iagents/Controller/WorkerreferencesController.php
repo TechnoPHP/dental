@@ -1,12 +1,12 @@
 <?php
-App::uses('AppController', 'Controller');
+App::uses('IagentsAppController', 'Iagents.Controller');
 /**
  * Workerreferences Controller
  *
  * @property Workerreference $Workerreference
  * @property PaginatorComponent $Paginator
  */
-class WorkerreferencesController extends AppController {
+class WorkerreferencesController extends IagentsAppController {
 
 /**
  * Components

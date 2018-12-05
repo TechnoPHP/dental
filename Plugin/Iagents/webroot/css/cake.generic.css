@@ -20,14 +20,14 @@
 	padding:0;
 }
 
-/** General Style Info **/
+/** General Style Info 
 body {
 	background: #003d4c;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:140%;
 	margin: 0;
-}
+}**/
 a {
 	color: #003d4c;
 	text-decoration: underline;
@@ -134,7 +134,7 @@ div.actions h3 {
 }
 
 
-/** Tables **/
+/** Tables 
 table {
 	border-right:0;
 	clear: both;
@@ -176,7 +176,7 @@ table td.actions a {
 	margin: 0 6px;
 	padding:2px 5px;
 }
-
+**/
 /* SQL log */
 .cake-sql-log {
 	background: #fff;
