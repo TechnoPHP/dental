@@ -1,23 +1,14 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="">
-			<h3><?php echo __('Actions'); ?></h3>
-			
-				<?php echo $this->Html->link(__('New Worker'), array('action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
-				<?php echo $this->Html->link(__('List Aagents'), array('controller' => 'aagents', 'action' => 'index'),array('class'=>'btn btn-block btn-outline-info')); ?>
-				<?php echo $this->Html->link(__('New Aagent'), array('controller' => 'aagents', 'action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
-				<?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index'),array('class'=>'btn btn-block btn-outline-info')); ?>
-				<?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
-				<?php echo $this->Html->link(__('List Admins'), array('controller' => 'admins', 'action' => 'index'),array('class'=>'btn btn-block btn-outline-info')); ?>
-				<?php echo $this->Html->link(__('New Admin'), array('controller' => 'admins', 'action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
-				<?php echo $this->Html->link(__('List Workerprofiles'), array('controller' => 'workerprofiles', 'action' => 'index'),array('class'=>'btn btn-block btn-outline-info')); ?>
-				<?php echo $this->Html->link(__('New Workerprofile'), array('controller' => 'workerprofiles', 'action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
-				<?php echo $this->Html->link(__('List Workerreferences'), array('controller' => 'workerreferences', 'action' => 'index'),array('class'=>'btn btn-block btn-outline-info')); ?>
-				<?php echo $this->Html->link(__('New Workerreference'), array('controller' => 'workerreferences', 'action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
+			<h3><?php echo __('Actions'); ?></h3>		
+			<?php echo $this->Html->link(__('New Worker'), array('action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
+			<?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index'),array('class'=>'btn btn-block btn-outline-info')); ?>
+			<?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'create'),array('class'=>'btn btn-block btn-outline-info')); ?>
 			</div>
 		</div><!-- col-md-3 -->
-		<div class="col-md-9">
+		<div class="col-md-10">
 			
 			<h2><?php echo __('Workers'); ?></h2>
 			<div class="table-responsive">

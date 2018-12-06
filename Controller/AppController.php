@@ -67,6 +67,7 @@ class AppController extends Controller {
 		
 		$this->_list_countries();
 		$this->_list_categories();
+		$this->_featured_categories();
 	}
 	
 	public function isAuthorized($user = null) {
@@ -78,7 +79,7 @@ class AppController extends Controller {
 		App::import('Model','Country');
   		$country = new Country();
 		//$country->unBindModel(array("hasMany" => array("Region")));
-		$countries = $country->find("all",array('fields'=>array('Country.name','Country.id'),'conditions'=>array("Country.active"=>1)));
+		$countries = $country->find("list",array('fields'=>array('Country.name','Country.id'),'conditions'=>array("Country.active"=>1)));
 		$appcountries = Set::combine($countries, '{n}.Country.id','{n}.Country.name');
 		//pr($appcountries);exit;
 		$this->set('appcountries', $appcountries);
@@ -88,8 +89,12 @@ class AppController extends Controller {
 		App::import('Model','Category');
   		$category = new Category();
 		//$country->unBindModel(array("hasMany" => array("Region")));
-		$appfcategories = $category->find("list",array('fields'=>array('Category.name','Category.id'),'conditions'=>array("Category.active"=>1,"Category.featured"=>1)));
-		
+		$appfcategories = $category->find("all",array(
+			'fields'=>array('Category.name','Category.id'),
+			'conditions'=>array("Category.active"=>1,"Category.featured"=>1)
+			)
+		);
+		$appfcategories = Set::combine($appfcategories, '{n}.Category.id','{n}.Category.name');
 		//pr($appfcategories);exit;
 		$this->set('appfcategories', $appfcategories);
 	}

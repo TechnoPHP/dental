@@ -28,7 +28,7 @@ $cakeDescription = __d('cake_dev', 'Dental site');
 	<?php
 		echo $this->Html->meta('icon');
 /*'slicknav',*/
-		echo $this->Html->css(array('bootstrap.min','superfish','animate','magnific-popup','font-awesome.min','owl.carousel.min','style'));
+		echo $this->Html->css(array('bootstrap.min','superfish','animate','magnific-popup','font-awesome.min','style'));
 		echo $this->Html->script(array('jquery-2.2.4.min','bootstrap.min'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -56,7 +56,7 @@ $cakeDescription = __d('cake_dev', 'Dental site');
 	
 	<?php echo $this->element('sql_dump'); ?>
 	
-	<?php /**/ echo $this->Html->script(array('superfish','jquery.mixitup.min','jquery.magnific-popup.min','owl.carousel.min','owl.animate','jquery.slicknav','jquery.counterup','waypoints.min','custom')); ?>
+	<?php /**/ echo $this->Html->script(array('superfish','jquery.mixitup.min','jquery.magnific-popup.min','jquery.slicknav','jquery.counterup','waypoints.min','custom')); ?>
 	<script>if($('#flashMessage').hasClass('alert')){setInterval("$('.alert').hide('slow')","10000");}if($('#authMessage').hasClass('alert')){setInterval("$('.alert').hide('slow')","10000");}</script><script>if($('#flashMessage').hasClass('alert')){setInterval("$('.alert').hide('slow')","10000");}if($('#authMessage').hasClass('alert')){setInterval("$('.alert').hide('slow')","10000");}</script>
 </body>
 </html>

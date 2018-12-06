@@ -55,13 +55,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 logo">
-					<a href="index-2.html"><?php //echo $this->Html->image("logo.png",array("alt"=>"logo"));?></a>
+					<?php echo $this->Html->link($this->Html->image("logo.jpg",array("alt"=>"trusted housecare services")),array("controller"=>"/"),array("escape"=>false,"title"=>"My Site name is site"));?>
 				</div>
 				<!-- Nav Start -->
 				<div class="col-md-9 nav-wrapper">
 					<div class="nav">
 						<ul class="sf-menu" id="menu">
-							<li class="current-menu-item"><?php echo $this->Html->link("Home",array('plugin'=>false,'controller'=>'pages','action'=>'display','admin'=>false));?></li>
 							
 							<?php 
 							$i=1;	$more=array();
@@ -80,7 +79,7 @@
 									
 								</ul>									
 							</li>
-							<li><a href="#">For Agents</a>
+							<li><a href="#">Agencies</a>
 								<ul>
 									<li><?php echo $this->Html->link("Agents",array('plugin'=>"iagents",'controller'=>'pages','action'=>'homepage','admin'=>false));?></li>
 									<li><a href="#">Referal form</a></li>

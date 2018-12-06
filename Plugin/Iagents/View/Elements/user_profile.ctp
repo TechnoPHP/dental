@@ -24,8 +24,8 @@
 			</div><!--card-body -->
 		
 			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><i class="glyphicon glyphicon-earphone"></i>&nbsp;<?php echo $currentuser['Aagent']['phone']; ?></li>
-				<li class="list-group-item"><i class="glyphicon glyphicon-envelope"></i>&nbsp;<?php echo $currentuser['Aagent']['email_address']; ?></li>
+				<li class="list-group-item"><i class="fa fa-phone"></i>&nbsp;<?php echo $currentuser['Aagent']['phone']; ?></li>
+				<li class="list-group-item"><i class="fa fa-envelope"></i>&nbsp;<?php echo $currentuser['Aagent']['email_address']; ?></li>
 					
 					<?php $msgtype=null;
 					if (isset($currentuser['Agentprofile']['msgtype']) && (!empty($currentuser['Agentprofile']['msgtype']))){
@@ -37,8 +37,8 @@
 						}
 					}
 					?>
-				<li class="list-group-item"><i class="glyphicon glyphicon-comment"></i>&nbsp;<?php echo $msgtype.":&nbsp;".$currentuser['Agentprofile']['messanger']; ?></li>
-				<li class="list-group-item"><i class="glyphicon glyphicon-map-marker"></i>Location</li>
+				<li class="list-group-item"><i class="fa fa-comments"></i>&nbsp;<?php echo $msgtype.":&nbsp;".$currentuser['Agentprofile']['messanger']; ?></li>
+				<li class="list-group-item"><i class="fa fa-map-marker"></i>&nbsp;Location</li>
 			</ul>
 	</div><!-- card -->
 </section><!-- /section -->

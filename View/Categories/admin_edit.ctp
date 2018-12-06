@@ -31,6 +31,28 @@
 								</div>
 								<div class="row">
 									<div class="col-md-3">
+										<div class="form-group">
+										<label for="parentcategoryname">Marketing slogan</label>
+											<?php echo $this->Form->text('Category.marketingslogan',array("class"=>"form-control","placeholder"=>"Insernt marketing slogan")); ?>
+										</div>
+									</div>									
+									<div class="col-md-3">
+										<div class="form-group">
+										<label for="categoryname">Marketing text</label>
+											<?php echo $this->Form->text('Category.marketingtext',array("class"=>"form-control","placeholder"=>"Insernt marketing text")); ?>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+										<label for="">Describe this category</label>
+											<?php echo $this->Form->textarea('Category.description',array("class"=>"form-control","placeholder"=>"Describe this category")); ?>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">
 										<div class="checkbox">
 											<label>
 											<?php echo $this->Form->checkbox('Category.active',array()); ?>&nbsp;Make it active</label>

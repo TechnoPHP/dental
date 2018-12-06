@@ -20,12 +20,33 @@
 										<label for="parentcategoryname">Parent Category</label>
 											<?php echo $this->Form->select('Category.parent_id',$parent,array("class"=>"form-control","empty"=>"Select Parent Category")); ?>
 										</div>
-									</div>
-									
+									</div>									
 									<div class="col-md-3">
 										<div class="form-group">
 										<label for="categoryname">Category Name</label>
 											<?php echo $this->Form->text('Category.name',array("class"=>"form-control","placeholder"=>"Category Name")); ?>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">
+										<div class="form-group">
+										<label for="">Marketing slogan</label>
+											<?php echo $this->Form->text('Category.marketingslogan',array("class"=>"form-control","placeholder"=>"Insernt marketing slogan")); ?>
+										</div>
+									</div>									
+									<div class="col-md-3">
+										<div class="form-group">
+										<label for="">Marketing text</label>
+											<?php echo $this->Form->text('Category.marketingtext',array("class"=>"form-control","placeholder"=>"Insernt marketing text")); ?>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+										<label for="">Describe this category</label>
+											<?php echo $this->Form->textarea('Category.description',array("class"=>"form-control","placeholder"=>"Describe this category")); ?>
 										</div>
 									</div>
 								</div>

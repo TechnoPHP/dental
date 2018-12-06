@@ -1,21 +1,23 @@
+<?php echo $this->Html->css('owl.carousel.min'); ?>
+<div class="container">
 <!-- Slider Start -->
 <section class="main-slider">
 	<div class="slide-carousel owl-item">					
-		<div class="item" style="background-image:url(img/experienced-dentist.jpg);">
+		<div class="item" style="background-image:url(img/banner-3.jpg);">
 			<div class="overlay"></div>
 			<div class="text">
 				<div class="this-item">
-					<h2>We Have Experienced Doctors</h2>
+					<h2>We Have Experienced Craftsmen</h2>
 				</div>
 				<div class="this-item">
-					<h3>You will get well experienced quality doctors here</h3>
+					<h3>You will get well experienced cartsmen here</h3>
 				</div>
 				<div class="this-item">
 					<p><a href="#">See Details</a></p>
 				</div>
 			</div>
 		</div>					
-		<div class="item" style="background-image:url(img/slide2.jpg);">
+		<div class="item" style="background-image:url(img/banner-2.jpg);">
 			<div class="overlay"></div>
 			<div class="text">
 				<div class="this-item">
@@ -29,7 +31,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="item" style="background-image:url(img/dental-banner-1.jpg);">
+		<div class="item" style="background-image:url(img/banner-1.jpg);">
 			<div class="overlay"></div>
 			<div class="text">
 				<div class="this-item">
@@ -46,3 +48,5 @@
 	</div>
 </section>
 	<!-- Slider End -->
+	</div>
+<?php echo $this->Html->script(array('owl.carousel.min','owl.animate'));?>

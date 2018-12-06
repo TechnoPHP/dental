@@ -4,18 +4,16 @@
 			<div class=""><?php echo $this->Session->flash();?></div>
 			<div class="panel">
 				<div class="panel-heading">
-					<div class="">Sign up</div>
-					<hr>
+					<h3 class="">Sign up</h3>
 				</div>
-				<div class="panel-body">
-					
+				<div class="panel-body">					
 					<div class="row">
 						<div class="col-md-12">
 							<?php echo $this->Form->create('User',array("url"=>array("plugin"=>false,"controller"=>"users","action"=>"register"), "role"=>"form", "id"=>"register-form")); ?>
 																
 								<div class="row">
 									<div class="col-md-12 form-group">
-										<lable><strong>Sign up</strong>&nbsp;&nbsp;<small>Provide information how to reach you for communication </small></lable>
+										<lable><small>Provide information how to reach to you for communication </small></lable>
 									</div>
 								</div>
 								<div class="row">
@@ -31,7 +29,7 @@
 									<div class="col-md-6 form-group">
 										<?php echo $this->Form->text('User.email_address',array("type"=>"text","class"=>"form-control ie7-margin","placeholder"=>"Email address"));?>
 										<?php echo $this->Form->error('User.email_address'); ?>
-										<small>Your email address will be your login name</small>
+										<small>Your email address will be your login Id</small>
 									</div>
 									<div class="col-md-6 form-group">
 										<?php echo $this->Form->text('User.phone',array("type"=>"text","class"=>"form-control ie7-margin","placeholder"=>"Contact number"));?>
@@ -66,7 +64,7 @@
 								<div class="form-group">
 									<div class="">
 										<div class="col-sm-6 col-sm-offset-3">
-											<input type="submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+											<input type="submit" tabindex="4" class="form-control btn btn-primary" value="Register Now">
 										</div>
 									</div>
 								</div>

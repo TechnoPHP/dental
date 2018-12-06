@@ -13,9 +13,9 @@
 				<div class="row">
 					<div class="col-md-12">
 						<ul>
-							<li><a href="#">Modern Laboratory</a></li>
+							<li><a href="#">Modern Equipments</a></li>
 							<li><a href="#">Critical Treatments</a></li>
-							<li><a href="#">Office Policies</a></li>
+							<li><a href="#">Service Policies</a></li>
 							<li><a href="#">Procedures</a></li>
 						</ul>
 					</div>

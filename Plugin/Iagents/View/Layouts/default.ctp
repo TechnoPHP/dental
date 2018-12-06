@@ -29,7 +29,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		echo $this->Html->meta('icon');
 		echo $this->Html->script('jquery-2.2.4.min');
 		echo $this->Html->script('Iagents.bootstrap.min');
-		echo $this->Html->css('Iagents.bootstrap.min');
+		echo $this->Html->css(array('Iagents.bootstrap.min','font-awesome.min'));
 		//echo $this->Html->css('Iagents.cake.generic');
 echo $this->Html->script('Iagents.popper.min');
 		echo $this->fetch('meta');
@@ -48,7 +48,7 @@ echo $this->Html->script('Iagents.popper.min');
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="footer" class="bg-light py-2">
+		<div id="footer" class="bg-light py-2 mt-2">
 			<p>
 				
 			</p>
