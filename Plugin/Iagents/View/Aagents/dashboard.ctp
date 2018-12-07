@@ -5,8 +5,8 @@
 </div>
 <div class="col-md-9">
 	<h4>About <?php echo $currentuser['Aagent']['firstname']; ?>
-	<?php if($this->Session->check('Auth.User.id')){
-			if($this->Session->read('Auth.User.id')==$currentuser['Aagent']['id']){
+	<?php if($this->Session->check('Auth.Aagent.id')){
+			if($this->Session->read('Auth.Aagent.id')==$currentuser['Aagent']['id']){
 	?>	
 	<div class="pull-right btn btn-default"><?php echo $this->Html->link("Update Profile", array("controller"=>"agentprofiles","action"=>"edit/".$currentuser['Agentprofile']['id'],"admin"=>false));?>	</div>
 	<?php } }?>

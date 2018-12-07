@@ -12,7 +12,7 @@
 			<div class="form-group">
 			<?php echo $this->Form->input("Agentprofile.image", array('type'=>'file',"class"=>"filestyle","data-buttonName"=>"btn-default","label"=>false));
 			echo $this->Form->error('name',array('style'=>'color:red;'));				 
-			echo $this->Form->hidden('Agentprofile.aagent_id', array('value'=>$this->Session->read("Auth.Agent.id")));
+			echo $this->Form->hidden('Agentprofile.aagent_id', array('value'=>$this->Session->read("Auth.Aagent.id")));
 			echo $this->Form->hidden('Agentprofile.id', array('value'=>$currentuser['Agentprofile']['id']));
 			echo $this->Form->end();?>
 			</div>

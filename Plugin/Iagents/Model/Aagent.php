@@ -91,7 +91,7 @@ class Aagent extends IagentsAppModel {
 				//'on' => 'create'
 				)
 		),
-		'group_id' => array(
+		'aagentgroup_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				'message' => 'User group is not confirmed',
@@ -131,9 +131,9 @@ class Aagent extends IagentsAppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Group' => array(
-			'className' => 'Group',
-			'foreignKey' => 'group_id',
+		'Aagentgroup' => array(
+			'className' => 'Aagentgroup',
+			'foreignKey' => 'aagentgroup_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

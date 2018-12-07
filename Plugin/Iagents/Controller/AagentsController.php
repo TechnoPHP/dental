@@ -367,7 +367,7 @@ class AagentsController extends IagentsAppController {
 			$this->request->data['Aagent']['ipaddr'] = $this->_getRealIpAddr();
 			$this->request->data['Aagent']['realipaddr'] = $this->_getRealIpAddr();
 			$this->request->data['Aagent']['src'] = 'site';
-			$this->request->data['Aagent']['group_id'] = '2';
+			$this->request->data['Aagent']['aagentgroup_id'] = '2';
 			$this->Aagent->setCaptcha('security_code', $this->Captcha->getCode('Aagent.security_code'));
 			if($this->MobileDetect->detect('isMobile')){
 				if($this->MobileDetect->detect('isiOS')){
@@ -433,7 +433,7 @@ class AagentsController extends IagentsAppController {
 						$this->Aagent->saveField('active','1');
 						App::import('Model','Iagents.Agentprofile');
 						$profile = new Agentprofile();
-						$profile->saveField('user_id',$user['Aagent']['id']); //create a profile id after user confirms
+						$profile->saveField('aagent_id',$user['Aagent']['id']); //create a profile id after user confirms
 						$this->Session->setFlash('Your account is now activated. You can login with your credentials.');
 					}
 					if($user['Aagent']['active'] =='1'){

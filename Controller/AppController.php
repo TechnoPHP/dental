@@ -79,7 +79,7 @@ class AppController extends Controller {
 		App::import('Model','Country');
   		$country = new Country();
 		//$country->unBindModel(array("hasMany" => array("Region")));
-		$countries = $country->find("list",array('fields'=>array('Country.name','Country.id'),'conditions'=>array("Country.active"=>1)));
+		$countries = $country->find("all",array('fields'=>array('Country.name','Country.id'),'conditions'=>array("Country.active"=>1)));
 		$appcountries = Set::combine($countries, '{n}.Country.id','{n}.Country.name');
 		//pr($appcountries);exit;
 		$this->set('appcountries', $appcountries);

@@ -44,8 +44,9 @@ class AgentprofilesController extends AppController {
 		}
 		$conditions = array('Aagentprofile.' . $this->Aagentprofile->primaryKey => $id);
 		//$profile = $this->Aagentprofile->find('first', $options);
-		$fields = array("Aagentprofile.*","User.id","User.firstname","User.email_address");
-		$profile = $this->Aagentprofile->User->find('first',array("fields"=>$fields,"conditions"=>$conditions));
+		
+		$fields = array("Aagentprofile.*","Aagent.id","Aagent.firstname","Aagent.email_address");
+		$profile = $this->Aagentprofile->Aagent->find('first',array("fields"=>$fields,"conditions"=>$conditions));
 		//pr($profile);exit;
 		$this->set('profile', $profile);
 	}
@@ -95,7 +96,7 @@ class AgentprofilesController extends AppController {
 			$this->request->data = $this->Agentprofile->find('first', $options);
 		}
 		$conditions = array("Agentprofile.id" => $id);
-		$fields = array("Agentprofile.id","Agentprofile.birthdate","Agentprofile.userimage","Agentprofile.messanger","Agentprofile.quotes","Aagent.id","Aagent.firstname","Aagent.lastname","Aagent.email_address","Aagent.phone");
+		$fields = array("Agentprofile.id","Agentprofile.birthdate","Agentprofile.userimage","Agentprofile.msgtype","Agentprofile.messanger","Agentprofile.quotes","Aagent.id","Aagent.firstname","Aagent.lastname","Aagent.email_address","Aagent.phone");
 		$profile = $this->Agentprofile->find('first',array("fields"=>$fields,'conditions'=>$conditions));
 		//pr($profile);exit;
 		$this->set('currentuser',$profile);
@@ -126,12 +127,12 @@ class AgentprofilesController extends AppController {
 		$this->layout='ajax';
 		if ($this->request->is(array('post','put'))) {
 		//pr($this->request->data);exit;
-			if ($this->Agentprofile->save($this->request->data,true)) {				
+			if ($this->Agentprofile->save($this->request->data,true)) {
 				//$this->redirect(array('action' => 'uploadimage'));
 			}
 		}
 		$fields = array("Agentprofile.id","Agentprofile.userimage");
-		$conditions = array("Agentprofile.aagent_id"=>$this->Session->read("Auth.User.id"));
+		$conditions = array("Agentprofile.aagent_id"=>$this->Session->read("Auth.Aagent.id"));
 		$user = $this->Agentprofile->find('first',array('conditions'=>$conditions,'fields'=>$fields));
 		//pr($user);exit;
 		if(!empty($user)){
