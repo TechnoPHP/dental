@@ -14,7 +14,8 @@ class FaqcategoriesController extends AppController {
  * @var array
  */
 	public $components = array('Paginator','Flash');
-		public function beforeFilter() {
+	
+	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow();
 		$this->Auth->authorize = array(
@@ -61,7 +62,13 @@ class FaqcategoriesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Faqcategory->create();
 			if ($this->Faqcategory->save($this->request->data)) {
-				$this->Flash->success(__('The faqcategory has been saved.'));
+				$this->Flash->success(__('The faqcategory has been saved'),
+				array(
+						'params' => array(
+							'name' => $this->request->data['Faqcategory']['name']
+						)
+					)	
+				);
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Flash->error(__('The faqcategory could not be saved. Please, try again.'));

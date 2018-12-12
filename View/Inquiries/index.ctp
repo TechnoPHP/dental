@@ -1,15 +1,15 @@
-<div class="inquiries index">
+<div class="container">
 	<h2><?php echo __('Inquiries'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table class="table table-striped">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('task_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('inquirytitle'); ?></th>
-			<th><?php echo $this->Paginator->sort('inquiryremark'); ?></th>
+			
 			<th><?php echo $this->Paginator->sort('status'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
@@ -19,7 +19,7 @@
 	<tr>
 		<td><?php echo h($inquiry['Inquiry']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($inquiry['User']['id'], array('controller' => 'users', 'action' => 'view', $inquiry['User']['id'])); ?>
+			<?php echo $this->Html->link($inquiry['User']['firstname'], array('controller' => 'users', 'action' => 'view', $inquiry['User']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($inquiry['Task']['title'], array('controller' => 'tasks', 'action' => 'view', $inquiry['Task']['id'])); ?>

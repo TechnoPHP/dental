@@ -8,7 +8,13 @@ App::uses('AppModel', 'Model');
  * @property Inquiryschedule $Inquiryschedule
  */
 class Inquiry extends AppModel {
-
+	public $actsAs = array(
+		
+		'Captcha' => array(
+			'field' => array('security_code'),
+			'error' => 'Incorrect captcha code value'
+		),				
+	);
 /**
  * Validation rules
  *

@@ -26,7 +26,7 @@ class AagentsController extends IagentsAppController {
 	);
 		
 	public $helper = array('Js','Paginator','Iagents.Captcha');
-	public $paginate = array('limit' => 15,	'order' => array('Aagent.created' => 'desc'));
+	public $paginate = array(	'order' => array('Aagent.created' => 'desc'));
 	public $custom_notification_team = array('someone@yahoo.com');
 
 	public function beforeFilter() {

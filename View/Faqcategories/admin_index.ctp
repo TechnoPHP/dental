@@ -13,7 +13,7 @@
 				</ul>
 				<!--breadcrumbs end -->
 				<section class="panel">
-					<header class="panel-heading">List of Categories<div class="pull-right"><?php echo $this->Html->link("Add New", array("plugin"=>"","controller"=>"categories","action"=>"create","admin"=>true)); ?></div></header>
+					<header class="panel-heading">List of Categories<div class="pull-right"><?php echo $this->Html->link("Add New", array("plugin"=>"","controller"=>"faqcategories","action"=>"create","admin"=>true)); ?></div></header>
 					<div class="panel-body">
 						<section id="unseen">
 							<table class="table table-bordered table-striped table-condensed">

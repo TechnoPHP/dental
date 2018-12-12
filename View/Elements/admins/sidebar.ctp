@@ -38,7 +38,7 @@
 				<li><?php echo $this->Html->link("<i class='fa fa-laptop'></i>Users", array("plugin"=>false,"controller"=>"users","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 				</ul>
 			</li>
-			<li><?php echo $this->Html->link("<i class='fa fa-comment'></i>Comments", array("plugin"=>false,"controller"=>"comments","action"=>"index","admin"=>false),array("escape"=>false)); ?></li>
+			<li><?php echo $this->Html->link("<i class='fa fa-comment'></i>Agencies", array("plugin"=>"iagents","controller"=>"agencies","action"=>"index","admin"=>"true"),array("escape"=>false)); ?></li>
 			<li><?php echo $this->Html->link("<i class='fa fa-group'></i>Contact Message", array("plugin"=>"contact","controller"=>"contacts","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 			<li><?php echo $this->Html->link("<i class='fa fa-comment'></i>Subscribers", array("plugin"=>false,"controller"=>"subscribers","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 			<li><?php echo $this->Html->link("<i class='fa fa-group'></i>FAQs", array("plugin"=>false,"controller"=>"faqs","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>

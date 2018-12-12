@@ -69,7 +69,7 @@ class CategoriesController extends AppController {
 	public function admin_index() {
 		$this->Category->recursive = 0;
 		$this->set('categories', $this->Paginator->paginate());
-		$this->set('masterclass','active');
+		
 	}
 
 /**
@@ -85,7 +85,7 @@ class CategoriesController extends AppController {
 		}
 		$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
 		$this->set('category', $this->Category->find('first', $options));
-		$this->set('masterclass','active');
+		
 	}
 	public function view($id = null) {
 		if (!$this->Category->exists($id)) {
@@ -93,7 +93,7 @@ class CategoriesController extends AppController {
 		}
 		$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
 		$this->set('category', $this->Category->find('first', $options));
-		$this->set('masterclass','active');
+		
 	}
 /**
  * add method
@@ -104,7 +104,7 @@ class CategoriesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Category->create();
 			if ($this->Category->save($this->request->data)) {
-				$this->Session->setFlash(__('The Category has been saved.'));
+				$this->Flash->success(__('The Category has been saved.'),array('params'=>array('name'=>$this->request->data['Category']['name'])));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The Category could not be saved. Please, try again.'));
@@ -114,7 +114,7 @@ class CategoriesController extends AppController {
 		$spacer="-";
 		$parent = $this->Category->generateTreeList('', '', '', $spacer);
 		$this->set(compact('parent'));
-		$this->set('masterclass','active');
+		
 	}
 
 /**
@@ -144,7 +144,6 @@ class CategoriesController extends AppController {
 		$parent = $this->Category->generateTreeList('', '', '', $spacer);
 		$this->set(compact('parent'));
 		//$this->set(compact('parentPostcategories'));
-		$this->set('masterclass','active');
 	}
 
 /**

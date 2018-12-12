@@ -89,7 +89,7 @@ class User extends AppModel {
 				//'on' => 'create'
 				),
 			array(
-				'rule' => array('identicalFieldValues', 'confirm_password' ),
+				'rule' => array('identicalFieldValues', 'confirm_password'),
 				'message' => 'Passwords does not match',
 				//'on' => 'create'
 				)
@@ -114,7 +114,7 @@ class User extends AppModel {
 				'message' => 'User group is not confirmed',
 			),
 		),
-		'country_id' => array(
+		/*'country_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				'message' => 'Country is not being specified',
@@ -133,11 +133,11 @@ class User extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-			array(
+			/*array(
 				'rule'=>array('checkzipcode','country_id'),
 				'message' => 'Zipcode does not exists in the country',
 			)
-		),
+		),*/
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -175,12 +175,12 @@ class User extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
-		'Eventsnshow' => array(
-			'className' => 'Eventsnshow',
-			'foreignKey' => 'user_id',
-			'dependent' => false
 		),*/
+		'Inquiry' => array(
+			'className' => 'Inquiry',
+			'foreignKey' => 'user_id',
+			'dependent' => true
+		),
 		
 	);
 	/**

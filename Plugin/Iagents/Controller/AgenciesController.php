@@ -30,7 +30,7 @@ App::uses('IagentsAppController', 'Iagents.Controller');
  */
 class AgenciesController extends IagentsAppController {
 
-	public $components = array('Paginator','RequestHandler');
+	public $components = array('Paginator','Flash','RequestHandler');
 /**
  * This controller does not use a model
  *
@@ -40,6 +40,11 @@ class AgenciesController extends IagentsAppController {
 	public function beforeFilter() { 
 		parent::beforeFilter();
 		$this->Auth->allow();
+		$this->set('masterclass','active');
+		$this->set('masterclass','');
+		$this->set('announceclass','');
+		$this->set('aclclass','');
+		$this->set('usersclass','');
 	}
 /**
  * Displays a view
@@ -59,53 +64,87 @@ class AgenciesController extends IagentsAppController {
 	}
 	
 	public function index() {
-		$this->Agency->recursive = 0; 
-		$conditions = array('Agency.active'=>1,'(Agency.name LIKE \'%'.$this->request->data['query'].'%\' or Agency.name LIKE \''.$this->request->data['query'].'%\')');
+		
+		$conditions = array();//',(Agency.name LIKE \'%'.$this->request->data['query'].'%\' or Agency.name LIKE \''.$this->request->data['query'].'%\')');
 		$this->Paginator->settings = array(
 			'Agency'=>array(
 				'contain'=>array(
-					'Agent'=>array('fields'=>array('id','firstname','lastname'),
+					'Aagent'=>array('fields'=>array('id','firstname','lastname'),
 						'Agentprofile'=>array('fields'=>array('id','imagesmall')),
 					),
 					//'Bscoverimage'=>array('imagesmall','imagebig'),
 					//'Bscategory'=>array('id','name'),
 					//'Rating'=>array()
 				),
-			'fields'=>array('Agency.id','Agency.name'),
+			'fields'=>array('Agency.id','Agency.name','Agency.city','Agency.phone','Agency.modified'),
 			'conditions' => array($conditions),
 			'limit' => 20,
-			'order'=>array('Agency.name'=>'asc'),
+			'order'=>array('Agency.active','Agency.name'=>'asc'),
 			)
 		);
 		$agencies = $this->Paginator->paginate();
+		//pr($agencies);exit;
 		$this->set('agencies', $agencies);
-		echo json_encode($agencies);
-		exit;
+		//echo json_encode($agencies);
+		//exit;
 	}
 	
-	public function create() {
+	public function admin_index(){
+		$this->index();
+	}
+	
+	public function create($admin=false) {
 		if ($this->request->is(array('post','put'))) {
 			$this->Agency->create();
 			if ($this->Agency->save($this->request->data)) {
-				$this->Session->setFlash(__('The Agency has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Flash->success(__('The Agency has been saved'),array('params'=>array('name'=>$this->request->data['Agency']['name'])));
+				return $this->redirect(array('plugin'=>'iagents','controller'=>'agnencies','action'=>'index','admin'=>$admin));
 			} else {
 				$this->Session->setFlash(__('The Agency could not be saved. Please, try again.'));
 			}
 		}
-		$agents = $this->Agency->find('list');
-		$this->set(compact('agents'));
+		$agencies = $this->Agency->find('list');
+		$this->set(compact('agencies'));
 	}
 	
-	public function view($id = null) {
+	public function admin_create($admin=true) {
+		$this->create($admin);
+	}
+	
+	public function edit($id = null,$admin=false) {
+		if (!$this->Agency->exists($id)) {
+			throw new NotFoundException(__('Invalid Agency'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Agency->save($this->request->data)) {
+				$this->Flash->success(__('The Agency has been saved'),array('params'=>array('name'=>$this->request->data['Agency']['name'])));
+				return $this->redirect(array('plugin'=>'iagents','controller'=>'agencies','action'=>'index','admin'=>$admin));
+			} else {
+				$this->Flash->error(__('The Agency could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Agency.' . $this->Agency->primaryKey=>$id));
+			$this->request->data = $this->Agency->find('first', $options);
+		}
+	}
+	
+	public function admin_edit($id = null,$admin=true) {
+		$this->edit($id,$admin);
+	}
+	
+	public function view($id = null,$admin=false) {
 		if (!$this->Agency->exists($id)) {
 			throw new NotFoundException(__('Invalid Aagency'));
 		}
 		$conditions = array('Agency.' . $this->Agency->primaryKey => $id);
-		//$agency = $this->Agency->find('first', $options);
-		$fields = array("Aagency.*");
+
+		$fields = array("Agency.*");
 		$agency = $this->Agency->find('first',array("fields"=>$fields,"conditions"=>$conditions));
 		//pr($agency);exit;
 		$this->set('agency', $agency);
+	}
+	
+	public function admin_view($id = null,$admin=true) {
+		$this->view($id,$admin);
 	}
 }

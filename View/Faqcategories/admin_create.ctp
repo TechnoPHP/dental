@@ -7,20 +7,15 @@
 			<div class="col-lg-12">
 				<section class="panel">
 					<header class="panel-heading">
-					Create New Work Faqcategory<div class="pull-right"><?php echo $this->Html->link("Back to list", array("controller"=>"categories","action"=>"index","admin"=>true)); ?></div>
+					Create New Work Faqcategory<div class="pull-right"><?php echo $this->Html->link("Back to list", array("controller"=>"faqcategories","action"=>"index","admin"=>true)); ?></div>
 					</header>
 					<div class="row">
 						<div class="col-md-12">						
 							<div class="panel-body">
-							<?php echo $this->Form->create('Faqcategory', array("url"=>array("controller"=>"categories",'action' => 'create','admin'=>true)));	?>
+							<?php echo $this->Form->create('Faqcategory', array("url"=>array("controller"=>"faqcategories",'action' => 'create','admin'=>true)));	?>
 							
 								<div class="row">
-									<div class="col-md-3">
-										<div class="form-group">
-										<label for="parentcategoryname">Parent Category</label>
-											<?php echo $this->Form->select('Faqcategory.parent_id',$parent,array("class"=>"form-control","empty"=>"Select Parent Category")); ?>
-										</div>
-									</div>									
+									
 									<div class="col-md-3">
 										<div class="form-group">
 										<label for="categoryname">Category Name</label>

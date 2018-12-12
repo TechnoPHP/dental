@@ -20,7 +20,7 @@
 							echo $this->Form->create('User', array("url"=>array("controller"=>"users","action"=>"login","admin"=>false), "class"=>"form-signin"));?>
 							
 							<div class="login-wrap">
-								<?php echo $this->Session->flash();?>
+								<?php echo $this->Session->flash();?><?php echo $this->Flash->render();?>
 								<div class="">
 								<?php echo $this->Form->text('User.email_address',array("class"=>"form-control","placeholder"=>"User ID")); ?>
 								<?php echo $this->Form->error('User.email_address');?>

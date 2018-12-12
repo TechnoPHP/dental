@@ -6,7 +6,8 @@
 		<p style="color:#fff"><?php echo $category['Category']['marketingtext'];?></p>
 		<p style="color:#fff"><?php echo $category['Category']['description'];?></p>
 		<p>
-		  <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Book your service now &raquo;</a>
+		  
+		  <?php echo $this->Html->link("Book your service now >>",array("controller"=>"inquiries","action"=>"create","admin"=>false,$category['Category']['id']),array("class"=>"btn btn-lg btn-primary"));?>
 		</p>
 	</div>
 	</div>
