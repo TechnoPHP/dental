@@ -45,7 +45,7 @@
 			<li class="sub-menu">
 				<a href="javascript:;" class="<?php echo ($aclclass)?$aclclass:""; ?>">
 					<i class="fa fa-user"></i>
-					<span>Access Control</span>
+					<span>Admin Access Control</span>
 				</a>
 				<ul class="sub">
 					<li><?php echo $this->Html->link(__("<i class='fa fa-laptop'></i>Update AROs"), array("plugin"=>"AclManager"),array("escape"=>false)); ?></li>
