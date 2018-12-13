@@ -13,7 +13,7 @@
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12  item">
-				<div class="loginbutton">
+				<div class="text-right">
 					<?php if($this->Session->check('Auth.User.id')){ ?>
 					<ul>
 						<li>
@@ -21,10 +21,12 @@
 							<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<?php echo $this->Session->read('Auth.User.firstname');?> <span class="caret"></span>
 							</button>
-						<ul class="dropdown-menu dropdown-menu-right">
-								<li><?php echo $this->Html->link("<i class='fa fa-lock-open'></i>Logout",array("plugin"=>false,"controller"=>"users","action"=>"logout"),array("escape"=>false)); ?></li></li>
-								</ul>
+							<ul class="dropdown-menu dropdown-menu-right">
+								<li><?php echo $this->Html->link("<i class='fa fa-lock-open'></i>Logout",array("plugin"=>false,"controller"=>"users","action"=>"logout"),array("escape"=>false)); ?>
+								</li>
+							</ul>
 						</div>
+						</li>
 					</ul>
 					<?php } else {?>
 					<ul>

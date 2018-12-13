@@ -1,7 +1,7 @@
 <?php echo $this->Html->css('owl.carousel.min'); ?>
 <div class="container">
 <!-- Slider Start -->
-<section class="main-slider">
+<section class="">
 	<div class="slide-carousel owl-item">					
 		<div class="item" style="background-image:url(img/banner-3.jpg);">
 			<div class="overlay"></div>
