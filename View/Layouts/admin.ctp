@@ -25,6 +25,7 @@ $cakeDescription = __d('cake_dev', '');
 	<?php echo $this->Html->meta(array('name'=>'robots','content'=>'noindex, nofollow'),null,array('inline'=>false)); ?>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<title>
 		<?php echo $cakeDescription ?>
 		<?php echo $title_for_layout; ?>
@@ -38,8 +39,9 @@ $cakeDescription = __d('cake_dev', '');
 		echo $this->Html->css("admins/slidebars");
 		echo $this->Html->css("admins/style");
 		echo $this->Html->script('jquery-2.2.4.min');
+		echo $this->Html->script('popper.min');
 		echo $this->Html->script('bootstrap.min');
-	
+		
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
@@ -69,7 +71,7 @@ $cakeDescription = __d('cake_dev', '');
 	echo $this->Html->script('adminjs/owl.carousel');
 	echo $this->Html->script('adminjs/jquery.customSelect.min');
 	echo $this->Html->script('adminjs/respond.min');
-   
+  
 	echo $this->Html->script('adminjs/slidebars.min');
    
 	echo $this->Html->script('adminjs/common-scripts');

@@ -1,21 +1,21 @@
 <div class="container">
 <div class="row">
 	<div class="col-md-6">
-		<h4>Let`s find your account with announceit</h4><hr>
+		<h4>Let`s find your account with iAdvisor</h4><hr>
 		<p><small>Please provide us your registered email address with this site. If your email address matches with the registered email address, you will be getting a link to reset your password. You can even change your own password once you log in.</small></p>		
 		<div class="clearfix"></div>
-		<?php echo $this->Form->create('User', array("url"=>array("controller"=>"users","action"=>"forgotpassword","admin"=>false),'role'=>'form'));?>
+		<?php echo $this->Form->create('Aagent', array("url"=>array("plugin"=>"iagents","controller"=>"aagents","action"=>"forgotpassword","admin"=>false),'role'=>'form'));?>
 		<div class="form-group">
-			<label>Whats your Email Id registered with announceit *</label>
-			<?php echo $this->Form->text('User.email_address', array('class' => 'form-control')); ?>
-			<?php echo $this->Form->error('User.email_address');?>
+			<label>Whats your Email Id registered with iAdvisor *</label>
+			<?php echo $this->Form->text('Aagent.email_address', array('class' => 'form-control')); ?>
+			<?php echo $this->Form->error('Aagent.email_address');?>
 		</div>
 		<div class="row">
 			<div class="col-md-6 form-group">
 				<input name="" type="submit" value="Reset your password" class="btn btn-primary" />
 			</div>
 			<div class="">						
-				<?php echo $this->Html->link("<b>Not a memeber? Join us</b>", array('controller'=>'users','action'=>'login','admin'=>false),array('class'=>'btn pull-right','escape'=>false)); ?>
+				<?php echo $this->Html->link("<b>Not a memeber? Join us</b>", array('plugin'=>'iagents','controller'=>'aagents','action'=>'register','admin'=>false),array('class'=>'btn pull-right','escape'=>false)); ?>
 			</div>
 		</div>
 		<?php echo $this->Form->end(); ?>
@@ -28,7 +28,7 @@
 			<li>Check your email inbox</li>
 			<li>Click on the link or paste the link into browser address bar</li>
 			<li>Reset the password. Happy announcing from full of your soul</li>
-			<li>Still an issue?&nbsp;mail to support@announceit.today</li>
+			<li>Still an issue?&nbsp;mail to support@iAdvisor.com</li>
 		</ul>
 		<!-- ul class="list-common">
 			<li>Split your announcement into 2 parts: a title and a description.</li>

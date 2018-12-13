@@ -237,9 +237,9 @@ class Worker extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Aagent' => array(
-			'className' => 'Aagent',
-			'foreignKey' => 'aagent_id',
+		'Agency' => array(
+			'className' => 'Agency',
+			'foreignKey' => 'agency_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -293,5 +293,5 @@ class Worker extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
+	
 }

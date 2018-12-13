@@ -36,10 +36,10 @@
 				<tr>
 					<td><?php echo h($worker['Worker']['id']); ?>&nbsp;</td>
 					<td>
-						<?php echo $this->Html->link($worker['Aagent']['firstname'], array('controller' => 'aagents', 'action' => 'view', $worker['Aagent']['id'])); ?>
+						<?php echo $this->Html->link($worker['Agency']['name'], array('plugin'=>'iagents','controller' => 'agencies', 'action' => 'view', $worker['Agency']['id'])); ?>
 					</td>
 					<td>
-						<?php echo $this->Html->link($worker['Category']['name'], array('controller' => 'categories', 'action' => 'view', $worker['Category']['id'])); ?>
+						<?php echo $this->Html->link($worker['Category']['name'], array('plugin'=>'','controller' => 'categories', 'action' => 'view', $worker['Category']['id'])); ?>
 					</td>
 					<td><?php echo h($worker['Worker']['firstname']); ?>&nbsp;</td>
 					<td><?php echo h($worker['Worker']['lastname']); ?>&nbsp;</td>
@@ -48,7 +48,7 @@
 					<td><?php echo h($worker['Worker']['ctcity']); ?>&nbsp;</td>				
 					<td><?php echo h($worker['Worker']['active']); ?>&nbsp;</td>
 					<td><?php echo h($worker['Worker']['approved']); ?>&nbsp;</td>
-					<td><?php echo h($worker['Worker']['modified']); ?>&nbsp;</td>
+					<td><?php echo $this->Time->format('M jS, Y', $worker['Worker']['modified']); ?>&nbsp;</td>
 					<td class="actions">
 						<?php echo $this->Html->link(__('View'), array('action' => 'view', $worker['Worker']['id'])); ?>
 						<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $worker['Worker']['id'])); ?>

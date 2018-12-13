@@ -21,7 +21,7 @@
 					</div -->
 					<div class="media-body">
 						<h4 class="media-heading"><?php echo ucfirst($service); ?></h4>
-						<?php echo $this->Html->image("service/".$service.".jpg",array("class"=>"img-responsive")); ?>
+						<?php echo $this->Html->image("service/".$service.".jpg",array("class"=>"img-fluid")); ?>
 						<p><?php //echo $service[''][''];?></p>
 					</div>
 				</div>

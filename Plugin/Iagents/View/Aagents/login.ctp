@@ -30,7 +30,7 @@
 								</div>
 								<div class="">
 									<div class="col-lg-12">
-										<div class="text-center">Click on sign up if you are not yet registered agent</div>
+										<div class="text-center">Click on <?php echo $this->Html->link("Sign up",array("plugin"=>"iagents","controller"=>"aagents","action"=>"register")); ?> if you are not yet registered agency</div>
 									</div>
 								</div>
 							<?php echo $this->Form->end(); ?>

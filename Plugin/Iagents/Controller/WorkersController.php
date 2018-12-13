@@ -28,12 +28,11 @@ class WorkersController extends IagentsAppController {
 		$this->Worker->recursive = 0;
 		$postcondition = array();
 		$this->Paginator->settings = array(
-			'Worker'=>array(
-				
-			'fields'=>array('Aagent.id','Aagent.firstname','Worker.id','Worker.firstname','Worker.lastname','Worker.gender','Worker.phone','Category.name','Category.id','Worker.modified','Worker.ctcity','Worker.active','Worker.approved'),
-			'conditions' => array($postcondition),
-			'limit' => 20,
-			'order'=>array('Buynsale.modified'=>'desc'),
+			'Worker'=>array(				
+				'fields'=>array('Agency.id','Agency.name','Worker.id','Worker.firstname','Worker.lastname','Worker.gender','Worker.phone','Category.name','Category.id','Worker.modified','Worker.ctcity','Worker.active','Worker.approved'),
+				'conditions' => array($postcondition),
+				'limit' => 20,
+				'order'=>array('Worker.modified'=>'desc'),
 			)
 		);
 		
@@ -41,7 +40,28 @@ class WorkersController extends IagentsAppController {
 		//pr($workers);exit;
 		$this->set('workers',$workers );
 	}
+	 function myworkers(){
+		if(!$this->Session->check("Auth.Aagent")){
+			throw new NotFoundException(__('Agent is not logged In'));
+		}
+		$postcondition = array("Workers.agency_id"=>$this->Session->read("Auth.Aagent.agency_id"));
+		$myworkers = $this->Worker->findAllByAgencyId($this->Session->read("Auth.Aagent.agency_id"),array('Agency.id','Agency.name','Worker.id','Worker.firstname','Worker.lastname','Worker.gender','Worker.phone','Category.name','Category.id','Worker.modified','Worker.ctcity','Worker.active','Worker.approved'));
+		/*$this->Paginator->settings = array(
+			'Worker'=>array(				
+				'fields'=>array('Agency.id','Agency.name','Worker.id','Worker.firstname','Worker.lastname','Worker.gender','Worker.phone','Category.name','Category.id','Worker.modified','Worker.ctcity','Worker.active','Worker.approved'),
+				'conditions' => array($postcondition),
+				'limit' => 20,
+				'order'=>array('Worker.modified'=>'desc'),
+			)
+		);*/
+		$this->Paginator->paginate($myworkers);
+		pr($myworkers);
+		$this->set('myworkers',$myworkers);
+	}
 
+	protected function _findAgencyId(){
+		
+	}
 /**
  * view method
  *
@@ -65,7 +85,7 @@ class WorkersController extends IagentsAppController {
 	public function create() {
 		if ($this->request->is(array('post','put'))) {
 			
-			$this->request->data['Worker']['aagent_id'] = $this->Session->read("Auth.Aagent.id");
+			$this->request->data['Worker']['agency_id'] = $this->Session->read("Auth.Aagent.agency_id");
 			//pr($this->Session->read("Auth.Aagent"));exit;
 			$this->Worker->create();
 			
@@ -76,7 +96,7 @@ class WorkersController extends IagentsAppController {
 				$this->Flash->error(__('The worker could not be saved. Please, try again.'));
 			}
 		}
-		$aagents = $this->Worker->Aagent->find('list');
+		$aagents = $this->Worker->Agency->find('list');
 		$categories = $this->Worker->Category->find('list');
 		$admins = $this->Worker->Admin->find('list');
 		$this->set(compact('aagents', 'categories', 'admins'));

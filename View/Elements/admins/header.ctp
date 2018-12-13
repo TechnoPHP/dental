@@ -12,9 +12,9 @@
 			
 	
 	?>
-	<div class="nav notify-row" id="top_menu">
+	<div class="notify-row pt-1" id="">
 		<!--  notification start -->
-		<ul class="nav top-menu">
+		<ul class="top-menu">
 			<!-- settings start -->
 			<li class="dropdown">
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -221,35 +221,28 @@
 		<!--  notification end -->
 	</div>
 
-	<div class="top-nav ">
+	<div class="mt-3">
 		<!--search & user info start-->
-		<ul class="nav pull-right top-menu">
-			<li>
-				<input type="text" class="form-control search" placeholder="Search">
-			</li>
+		
+		
 			<!-- user login dropdown start-->
-			<li class="dropdown">
-				<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+			<div class="dropdown float-right">
+				<a class="btn btn-sm btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<?php //echo $this->Html->image("admin/avatar1_small.jpg"); ?>
-					<span class="username"><?php echo $this->Session->read('Auth.Admin.firstname'); ?></span>
-					<b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu extended logout">
-					<div class="log-arrow-up"></div>
-					<li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-					<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-					<li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
+					<?php echo $this->Session->read('Auth.Admin.firstname'); ?>
 					
-					<li><?php echo $this->Html->link("<i class='fa fa-exchange'></i>Change Password",array("plugin"=>false,"controller"=>"admins","action"=>"changepassword","admin"=>true),array("escape"=>false)); ?></li>
-					<li><?php echo $this->Html->link("<i class='fa fa-key'></i> Log Out",array("plugin"=>false,"controller"=>"admins","action"=>"logout","admin"=>true),array("escape"=>false)); ?></li>
-				</ul>
-			</li>
-			<li class="sb-toggle-right">
-				<i class="fa  fa-align-right"></i>
-			</li>
-			<!-- user login dropdown end -->
-		</ul>
-		<!--search & user info end-->
+				</a>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+					
+					<a href="#" class="dropdown-item px-2"><i class=" fa fa-suitcase"></i>&nbsp;Profile</a>
+					<a href="#" class="dropdown-item px-2"><i class="fa fa-cog"></i>&nbsp;Settings</a>
+					<a href="#" class="dropdown-item px-2"><i class="fa fa-bell-o"></i>&nbsp;Notification</a>
+					
+					<?php echo $this->Html->link("<i class='fa fa-exchange'></i>&nbsp;Change Password",array("plugin"=>false,"controller"=>"admins","action"=>"changepassword","admin"=>true),array("escape"=>false,"class"=>"dropdown-item px-2")); ?>
+					<?php echo $this->Html->link("<i class='fa fa-key'></i>&nbsp;Log Out",array("plugin"=>false,"controller"=>"admins","action"=>"logout","admin"=>true),array("escape"=>false,"class"=>"dropdown-item px-2")); ?>
+				</div>
+			</div>
+
 	</div>
 <?php } ?>
 </header>

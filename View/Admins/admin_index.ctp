@@ -13,8 +13,8 @@
 				</ul>
 				<!--breadcrumbs end -->
 				<div class="row">
-			<div class="panel-body">
-				<section class="panel">
+			<div class="card-body">
+				<div class="card">
 				<?php echo $this->Form->create("Admin",array("url"=>array("plugin"=>false,"controller"=>"admins","action"=>"index","admin"=>true))); ?>
 					<div class="col-md-3">
 					
@@ -29,7 +29,7 @@
 						<?php echo $this->Form->submit("Filter",array("class"=>"btn btn-primary")); ?>
 					</div>
 				<?php	echo $this->Form->end();?>
-				</section>
+				</div>
 				</div>
 				</div>
 				<section class="panel">

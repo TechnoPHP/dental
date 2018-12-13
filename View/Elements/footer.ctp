@@ -9,7 +9,7 @@
 				</p>
 			</div>
 			<div class="col-sm-6 col-md-3 col-lg-3 footer-col">
-				<h3>Dental Services</h3>
+				<h3>Housecare Services</h3>
 				<div class="row">
 					<div class="col-md-12">
 						<ul>
@@ -51,7 +51,7 @@
 				</div>
 				<div class="contact-item">
 					<div class="icon"><i class="fa fa-envelope-o"></i></div>
-					<div class="text">doctor@dental.com</div>
+					<div class="text">support@iAdvisor.com</div>
 				</div>
 			</div>
 		</div>

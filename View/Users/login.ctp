@@ -2,17 +2,12 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class=""><?php echo $this->Session->flash();?></div>
-			<div class="panel">
-				<div class="panel-heading">
-					<div class="">Sign in</div>
-					<hr>
+			<div class="card mb-3">
+				<div class="card-header">
+					<div class="">Sign in <small>with your email provided at the time of registration.</small></div>
 				</div>
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-md-12 form-group">
-							<lable><strong>Sign In</strong>&nbsp;&nbsp;<small>with your email provided at the time of registration.</small></lable>
-						</div>
-					</div>
+				<div class="card-body">
+					
 	
 				<div class="row">
 					<div class="col-md-8">			
@@ -21,18 +16,18 @@
 							
 							<div class="login-wrap">
 								<?php echo $this->Session->flash();?><?php echo $this->Flash->render();?>
-								<div class="">
+								<div class="form-group">
 								<?php echo $this->Form->text('User.email_address',array("class"=>"form-control","placeholder"=>"User ID")); ?>
 								<?php echo $this->Form->error('User.email_address');?>
 								</div>
 
-								<div class="">
+								<div class="form-group">
 								<?php echo $this->Form->password('User.password',array("class"=>"form-control","placeholder"=>"Password")); ?>
 								<?php echo $this->Form->error('User.password');?>
 								</div>
 							
-								<div class="">
-								<button type="submit" value="LogIn" class="btn btn-lg btn-login btn-block">Log In</button>
+								<div class="form-group">
+								<button type="submit" value="LogIn" class="btn btn-primary">Log In</button>
 								</div>							
 							</div>
 						<?php echo $this->Form->end(); ?>

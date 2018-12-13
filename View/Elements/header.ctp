@@ -54,11 +54,11 @@
 	<header>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 logo">
+				<div class="col-md-4 logo">
 					<?php echo $this->Html->link($this->Html->image("logo.jpg",array("alt"=>"trusted housecare services")),array("controller"=>"/"),array("escape"=>false,"title"=>"My Site name is site"));?>
 				</div>
 				<!-- Nav Start -->
-				<div class="col-md-9 nav-wrapper">
+				<div class="col-md-8 nav-wrapper">
 					<div class="nav">
 						<ul class="sf-menu" id="menu">
 							

@@ -90,11 +90,14 @@
 									</div>
 								</div>
 								<div class="row">								
-									<div class="">
-										<div class="col-md-12">
-											<input type="submit" tabindex="4" class="form-group btn btn-block btn-outline-info" value="Register Now">
+									
+										<div class="col-md-4">
+											<input type="submit" tabindex="" class="form-group btn btn-block btn-outline-info" value="Register Now">											
 										</div>
-									</div>
+										<div class="col-md-7">Already registered? 
+										<?php echo $this->Html->link("Login here", array(),array("class"=>"")); ?>
+										</div>
+									
 								</div>
 							<?php echo $this->Form->end(); ?>
 						</div>
@@ -103,7 +106,10 @@
 			</div><!--pannel-login -->
 		</div><!--inner_pages -->
 		<div class="col-md-4 col-sm-6">
-
+			<p>* Provide basic information about your agency and contact person of the agency; mostly the owner of the agency or manager of the operations.</p>
+			<p>* Once you submit the form, it will create an agency in the system with basic information and an agency contact person will get the email confirmation link.</p>
+			<p>* After confirming the email link receieved in the email, the contact person may login and update/provide more information about the agency and himself.</p>
+			<p>* The contact person may also get the verification call to check the registration is not done by mistake and he is intended to do aliance with iAdvisor.com.</p>
 		</div>
 	</div> <!--row-->
 </div> <!-- container -->

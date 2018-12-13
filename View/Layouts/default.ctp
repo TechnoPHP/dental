@@ -29,7 +29,8 @@ $cakeDescription = __d('cake_dev', 'Dental site');
 		echo $this->Html->meta('icon');
 /*'slicknav',*/
 		echo $this->Html->css(array('bootstrap.min','superfish','animate','magnific-popup','font-awesome.min','style'));
-		echo $this->Html->script(array('jquery-2.2.4.min','bootstrap.min'));
+		//echo $this->Html->script();
+		echo $this->Html->script(array('jquery-2.2.4.min','popper.min','bootstrap.min'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');

@@ -5,7 +5,7 @@
 			<div class="symbol terques">
 				<i class="fa fa-user"></i>
 			</div>
-			<div class="value"><h1 class="count">0</h1><p>Buy & Sale</p></div>
+			<div class="value"><h1 class="count">0</h1><p>Agencies</p></div>
 		</section>
 	</div>
 	<div class="col-lg-3 col-sm-6">
@@ -13,7 +13,7 @@
 			<div class="symbol red">
 				<i class="fa fa-flag fa-2x"></i>
 			</div>
-			<div class="value"><h1 class="count2">0</h1><p>Events & Shows</p></div>
+			<div class="value"><h1 class="count2">0</h1><p>Customers</p></div>
 		</section>
 	</div>
 	<div class="col-lg-3 col-sm-6">

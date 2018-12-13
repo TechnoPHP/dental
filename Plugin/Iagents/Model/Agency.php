@@ -91,6 +91,19 @@ class Agency extends IagentsAppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
+		),
+		'Worker' => array(
+			'className' => 'Worker',
+			'foreignKey' => 'agency_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
 	);
 	/**
@@ -108,5 +121,4 @@ class Agency extends IagentsAppModel {
 		if(strlen($value) == 0) {return true;}
 		return preg_match('/^[0-9-+()# ]{6,23}+$/', $value);
 	}
-
 }
