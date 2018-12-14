@@ -20,10 +20,10 @@ class CategoriesController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow();
 		$this->set('masterclass','active');
-		$this->set('masterclass','');
-		$this->set('announceclass','');
 		$this->set('aclclass','');
 		$this->set('usersclass','');
+		$this->set('groupsclass','');
+		$this->set('dashboardclass','');
 	}
 	
 	public function _getlftrght($catid=null){

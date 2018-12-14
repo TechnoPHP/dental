@@ -6,23 +6,26 @@
 			<div class="col-lg-12">
 				<!--breadcrumbs start -->
 				<div class=""><?php echo $this->Session->flash(); ?> </div>
-				<ul class="breadcrumb">
-					<li><?php echo $this->Html->link("<i class='fa fa-home'></i> Home",array("controller"=>"users","action"=>"dashboard","admin"=>true),array("escape"=>false)); ?></li>
-					<li><a href="#">Countries</a></li>
-					<li class="active">List</li>
-				</ul>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><?php echo $this->Html->link("<i class='fa fa-home'></i> Home",array("controller"=>"users","action"=>"dashboard","admin"=>true),array("escape"=>false)); ?></li>
+						<li class="breadcrumb-item"><a href="#">Countries</a></li>
+						<li class="breadcrumb-item">List</li>
+					</ol>
+				</nav>
 				<!--breadcrumbs end -->
-				<section class="panel">
-					<header class="panel-heading">List of Countries<div class="pull-right"><?php echo $this->Html->link("Add New", array("plugin"=>"","controller"=>"countries","action"=>"create","admin"=>true)); ?></div></header>
-					<div class="panel-body">
-						<section id="unseen">
-							<ul class="pagination">
-							<?php
-								echo $this->Paginator->prev(__('Prev'), array('tag' => 'li'), null, array('tag' => 'li','class' => 'disabled','disabledTag' => 'a'));
-								echo $this->Paginator->numbers(array('separator' => '','currentTag' => 'a', 'currentClass' => 'active','tag' => 'li','first' => 1));
-								echo $this->Paginator->next(__('Next'), array('tag' => 'li','currentClass' => 'disabled'), null, array('tag' => 'li','class' => 'disabled','disabledTag' => 'a'));
-							?>
-							</ul>
+				<ul class="pagination">
+				<?php
+					echo $this->Paginator->prev(__('Prev'), array('tag' => 'li'), null, array('tag' => 'li','class' => 'disabled','disabledTag' => 'a'));
+					echo $this->Paginator->numbers(array('separator' => '','currentTag' => 'a', 'currentClass' => 'active','tag' => 'li','first' => 1));
+					echo $this->Paginator->next(__('Next'), array('tag' => 'li','currentClass' => 'disabled'), null, array('tag' => 'li','class' => 'disabled','disabledTag' => 'a'));
+				?>
+				</ul>
+				<div class="card">
+					<div class="card-header"><h6>List of Countries<?php echo $this->Html->link("Add New", array("plugin"=>"","controller"=>"countries","action"=>"create","admin"=>true),array("class"=>"btn btn-outline-info float-right btn-sm")); ?></h6></div>
+					<div class="card-body">
+
+							
 							<table class="table table-bordered table-striped table-condensed">
 								<thead>
 								<tr>
@@ -53,15 +56,15 @@
 										<td><?php echo ($country['Country']['active']?"Yes":"No"); ?>&nbsp;</td>
 										
 										<td class="actions">
-											<?php echo $this->Html->link(__('View'), array('action' => 'view', $country['Country']['id']),array('class'=>'btn btn-success btn-xs')); ?>
-											<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $country['Country']['id']),array('class'=>'btn btn-info btn-xs')); ?>
-											<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $country['Country']['id']), array('class'=>'btn btn-danger btn-xs'), __('Are you sure you want to delete # %s?', $country['Country']['id'])); ?>
+											<?php echo $this->Html->link(__('View'), array('action' => 'view', $country['Country']['id']),array('class'=>'badge badge-success')); ?>
+											<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $country['Country']['id']),array('class'=>'badge badge-info')); ?>
+											<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $country['Country']['id']), array('class'=>'badge badge-danger'), __('Are you sure you want to delete # %s?', $country['Country']['id'])); ?>
 										</td>
 									</tr>
 									<?php } ?>
 								</tbody>
 							</table>
-						</section> <!-- unseen -->
+
 						<p>
 						<?php
 						echo $this->Paginator->counter(array(
@@ -76,7 +79,7 @@
 							?>
 						</ul>
 					</div><!--/#content-->
-				</section><!-- panel -->
+				</div><!-- panel -->
 			</div><!--/col-lg-12-->
 		</div>
 	</section>

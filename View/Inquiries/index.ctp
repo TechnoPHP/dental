@@ -25,14 +25,14 @@
 			<?php echo $this->Html->link($inquiry['Task']['title'], array('controller' => 'tasks', 'action' => 'view', $inquiry['Task']['id'])); ?>
 		</td>
 		<td><?php echo h($inquiry['Inquiry']['inquirytitle']); ?>&nbsp;</td>
-		<td><?php echo h($inquiry['Inquiry']['inquiryremark']); ?>&nbsp;</td>
+		
 		<td><?php echo h($inquiry['Inquiry']['status']); ?>&nbsp;</td>
-		<td><?php echo h($inquiry['Inquiry']['created']); ?>&nbsp;</td>
-		<td><?php echo h($inquiry['Inquiry']['modified']); ?>&nbsp;</td>
+		
+		<td><?php echo $this->Time->format('M j, Y',$inquiry['Inquiry']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $inquiry['Inquiry']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $inquiry['Inquiry']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $inquiry['Inquiry']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $inquiry['Inquiry']['id']))); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $inquiry['Inquiry']['id']),array("class"=>"badge badge-success")); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $inquiry['Inquiry']['id']),array("class"=>"badge badge-info")); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $inquiry['Inquiry']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $inquiry['Inquiry']['id']),"class"=>"badge badge-danger")); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

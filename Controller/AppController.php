@@ -52,7 +52,7 @@ class AppController extends Controller {
 			//echo "its user session";
 		}
 		$this->Auth->flash['params']['class'] = 'alert alert-danger';
-		//$this->Auth->allow();
+		$this->Auth->allow();
         //Configure AuthComponent
 		$this->Auth->authenticate = array(
 			'Form' => array(
@@ -91,7 +91,8 @@ class AppController extends Controller {
 		//$country->unBindModel(array("hasMany" => array("Region")));
 		$appfcategories = $category->find("all",array(
 			'fields'=>array('Category.name','Category.id'),
-			'conditions'=>array("Category.active"=>1,"Category.featured"=>1)
+			'conditions'=>array("Category.active"=>1,"Category.featured"=>1),
+			'order'=>array('Category.featured'=>'desc','Category.name'),//featured =1 and alphabetic sort
 			)
 		);
 		$appfcategories = Set::combine($appfcategories, '{n}.Category.id','{n}.Category.name');

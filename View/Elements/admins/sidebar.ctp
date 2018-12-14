@@ -5,7 +5,7 @@
 		<ul class="sidebar-menu" id="nav-accordion">
 		  
 			<li class="sub-menu">			
-				<a href="javascript:;" class="<?php echo ($usersclass)?$usersclass:""; ?>">
+				<a href="javascript:;" class="<?php echo ($dashboardclass)?$dashboardclass:""; ?>">
 				<i class="fa fa-user"></i><span>Admin</span></a>
 				<ul class="sub">
 					<li><?php echo $this->Html->link("<i class='fa fa-dashboard'></i>Dashboard", array("plugin"=>false,"controller"=>"admins","action"=>"dashboard","admin"=>true),array("escape"=>false)); ?></li>
@@ -25,16 +25,27 @@
 				</ul>
 			</li>
 			<li><?php echo $this->Html->link("<i class='fa fa-group'></i>Tasks", array("plugin"=>false,"controller"=>"tasks","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
-			<li><?php echo $this->Html->link("<i class='fa fa-group'></i>Admin Groups", array("plugin"=>false,"controller"=>"admingroups","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
-			<li><?php echo $this->Html->link("<i class='fa fa-group'></i>User Groups", array("plugin"=>false,"controller"=>"groups","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 			<li class="sub-menu">
-				<a href="javascript:;" class="<?php echo ($announceclass)?$announceclass:""; ?>">
+				<a href="javascript:;" class="<?php echo ($groupsclass)?$groupsclass:""; ?>">
+					<i class="fa fa-user"></i>
+					<span>Groups</span>
+				</a>
+				<ul class="sub">			
+				<li><?php echo $this->Html->link("<i class='fa fa-group'></i>Admin Groups", array("plugin"=>false,"controller"=>"admingroups","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
+				<li><?php echo $this->Html->link("<i class='fa fa-group'></i>Agent Groups", array("plugin"=>"iagents","controller"=>"aagentgroups","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
+				<li><?php echo $this->Html->link("<i class='fa fa-group'></i>User Groups", array("plugin"=>false,"controller"=>"groups","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
+				</ul>
+			</li>
+			
+			<li class="sub-menu">
+				<a href="javascript:;" class="<?php echo ($usersclass)?$usersclass:""; ?>">
 					<i class="fa fa-user"></i>
 					<span>Users</span>
 				</a>
 				<ul class="sub">
 				<li>
 				<?php echo $this->Html->link("<i class='fa fa-laptop'></i>Administrators", array("plugin"=>false,"controller"=>"admins","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
+				<li><?php echo $this->Html->link("<i class='fa fa-laptop'></i>Agents", array("plugin"=>'iagents',"controller"=>"aagents","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 				<li><?php echo $this->Html->link("<i class='fa fa-laptop'></i>Users", array("plugin"=>false,"controller"=>"users","action"=>"index","admin"=>true),array("escape"=>false)); ?></li>
 				</ul>
 			</li>

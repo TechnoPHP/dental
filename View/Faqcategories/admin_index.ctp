@@ -6,16 +6,18 @@
 			<div class="col-lg-12">
 				<!--breadcrumbs start -->
 				<div class="info-success"><?php echo $this->Flash->render(); ?> </div>
-				<ul class="breadcrumb">
-					<li><?php echo $this->Html->link("<i class='fa fa-home'></i> Home",array("controller"=>"users","action"=>"dashboard","admin"=>true),array("escape"=>false)); ?></li>
-					<li><a href="#">Categories</a></li>
-					<li class="active">List</li>
-				</ul>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><?php echo $this->Html->link("<i class='fa fa-home'></i> Home",array("controller"=>"users","action"=>"dashboard","admin"=>true),array("escape"=>false)); ?></li>
+						<li class="breadcrumb-item"><a href="#">FAQ Categories</a></li>
+						<li class="breadcrumb-item">List</li>
+					</ol>
+				</nav>
 				<!--breadcrumbs end -->
-				<section class="panel">
-					<header class="panel-heading">List of Categories<div class="pull-right"><?php echo $this->Html->link("Add New", array("plugin"=>"","controller"=>"faqcategories","action"=>"create","admin"=>true)); ?></div></header>
-					<div class="panel-body">
-						<section id="unseen">
+				<div class="card">
+					<div class="card-header"><h6>List of FAQ Categories<?php echo $this->Html->link("Add New", array("plugin"=>"","controller"=>"faqcategories","action"=>"create","admin"=>true),array("class"=>"btn btn-outline-info btn-sm float-right")); ?></h6></div>
+					<div class="card-body">
+
 							<table class="table table-bordered table-striped table-condensed">
 								<thead>
 								<tr>
@@ -34,19 +36,19 @@
 										<td><?php echo h($faqcategory['Faqcategory']['name']); ?>&nbsp;</td>
 										
 										<td><?php echo ($faqcategory['Faqcategory']['active']?"Yes":"No"); ?>&nbsp;</td>										
-										<td><?php echo $this->Time->format($faqcategory['Faqcategory']['created'],'%B %e, %Y'); ?>&nbsp;</td>
+										<td><?php echo $this->Time->format('M j, Y',$faqcategory['Faqcategory']['created']); ?>&nbsp;</td>
 										<td class="actions">
-											<?php echo $this->Html->link(__('View'), array('action' => 'view', $faqcategory['Faqcategory']['id']),array('class'=>'btn btn-success btn-xs')); ?>
-											<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $faqcategory['Faqcategory']['id']),array('class'=>'btn btn-info btn-xs')); ?>
-											<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $faqcategory['Faqcategory']['id']), array('class'=>'btn btn-danger btn-xs'), __('Are you sure you want to delete # %s?', $faqcategory['Faqcategory']['id'])); ?>
+											<?php echo $this->Html->link(__('View'), array('action' => 'view', $faqcategory['Faqcategory']['id']),array('class'=>'badge badge-success')); ?>
+											<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $faqcategory['Faqcategory']['id']),array('class'=>'badge badge-info')); ?>
+											<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $faqcategory['Faqcategory']['id']), array('class'=>'badge badge-danger'), __('Are you sure you want to delete # %s?', $faqcategory['Faqcategory']['id'])); ?>
 										</td>
 									</tr>
 									<?php } ?>
 								</tbody>
 							</table>						
-						</section> <!-- unseen -->
+
 					</div><!--/#content.span10-->
-				</section><!-- panel -->
+				</div><!-- panel -->
 			</div><!--/col-lg-12-->
 		</div>
 	</section>

@@ -41,8 +41,7 @@ class AgenciesController extends IagentsAppController {
 		parent::beforeFilter();
 		$this->Auth->allow();
 		$this->set('masterclass','active');
-		$this->set('masterclass','');
-		$this->set('announceclass','');
+		$this->set('dashboardclass','');
 		$this->set('aclclass','');
 		$this->set('usersclass','');
 	}

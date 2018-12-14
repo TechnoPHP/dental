@@ -1,4 +1,4 @@
-<?php echo $this->element('admin/admin_sidebar');?>
+<?php echo $this->element('admins/sidebar');?>
 <!--main content start-->
 <section id="main-content">
 	<section class="wrapper">
@@ -6,74 +6,65 @@
 			<div class="col-lg-12">
 				<!--breadcrumbs start -->
 				<div class=""><?php echo $this->Session->flash(); ?> </div>
-				<ul class="breadcrumb">
-					<li><?php echo $this->Html->link("<i class='fa fa-home'></i> Home",array("controller"=>"users","action"=>"dashboard","admin"=>true),array("escape"=>false)); ?></li>
-					<li><a href="#">Users</a></li>
-					<li class="active">List</li>
-				</ul>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+					<li class="breadcrumb-item"><?php echo $this->Html->link("<i class='fa fa-home'></i> Home",array("controller"=>"users","action"=>"dashboard","admin"=>true),array("escape"=>false)); ?></li>
+					<li class="breadcrumb-item"><a href="#">Users</a></li>
+					<li class="breadcrumb-item">List</li>
+					</ol>
+				</nav>
 				<!--breadcrumbs end -->
-				<div class="row">
-			<div class="panel-body">
-				<section class="panel">
-				<?php echo $this->Form->create("User",array("url"=>array("controller"=>"users","action"=>"index","admin"=>true))); ?>
-					<div class="col-md-3">
+				<div><?php echo $this->Session->flash(); ?> </div>
+				<div class="">
+			<div class="card mb-3">
+				<div class="card-body">
+				<?php echo $this->Form->create("Aagentgroup",array("url"=>array("plugin"=>"iagents","controller"=>"aagents","action"=>"index","admin"=>true))); ?>
+				<div class="form-inline">
 					
-
-					</div>
-					<div class="col-md-3">
-					Group<br>
-					<?php echo $this->Form->select('User.group_id', $groups, array("empty"=>"--Select Group--","class"=>"form-control"), false);?>
-					<?php echo $this->Form->error('Group.name');?>
-					</div>
-					<div class="col-md-6">
-						<?php echo $this->Form->submit("Filter",array("class"=>"btn btn-primary")); ?>
-					</div>
+					<?php echo $this->Form->select('Aagentgroup.id', $aagentgroups, array("empty"=>"--Select Group--","class"=>"form-control mx-sm-3"), false);?>
+					<?php echo $this->Form->submit("Filter",array("class"=>"btn btn-primary btn-sm float-right")); ?>
+					<?php echo $this->Form->error('Aagentgroup.name');?>
+					
+				</div>
 				<?php	echo $this->Form->end();?>
-				</section>
 				</div>
 				</div>
-				<section class="panel">
-					<header class="panel-heading">
-					List of Users
-					<div class="pull-right">
-						<?php echo $this->Html->link("Add New", array("controller"=>"users","action"=>"create","admin"=>true)); ?>
+				</div>
+				<div class="card">
+					<div class="card-header"><h6>List of Agents<?php echo $this->Html->link("Add New", array("plugin"=>"iagents","controller"=>"aagents","action"=>"create","admin"=>true),array("class"=>"btn btn-sm btn-outline-info float-right")); ?></h6>
 					</div>
-					</header>
-			
-					<div><?php echo $this->Session->flash(); ?> </div>
-					
-					<div class="panel-body">
-						<section id="unseen">								
+					<div class="card-body">
+						
 							<table class="table table-bordered table-striped table-condensed">
 								<thead>
 									<tr>
 										<th width="10%">First Name</th>
 										<th width="10%">Last Name</th>
-										<th width="34%">Email</th>
-										<th width="5%">Country</th>
+										<th width="30%">Email</th>
+										<th width="14%">phone</th>
 										<th width="7%">Group</th>
 										<th width="10%">Modified</th>
-										<th width="14%" style="text-align:right">Action</th>									
+										<th width="14%" >Action</th>									
 									</tr>							
 								</thead>
 								<tbody>
 									<?php 
-									foreach($users as $user){	?>
+									foreach($aagents as $aagent){	?>
 									<tr>
-										<td><?php echo $user['User']['firstname']?> </td>
-										<td><?php echo $user['User']['lastname']?> </td>
-										<td><?php echo $user['User']['email_address'];?> </td>
-										<td><?php echo $user['User']['countryiso2']?></td>
-										<td><?php echo $user['Group']['name']; ?></td>
-										<td><?php echo $this->Time->nicedate($user['User']['modified']); ?></td>
-										<td style="text-align:right"><?php echo $this->Html->link('View',array('controller'=>'users','action'=>'view/'.$user['User']['id'],'admin'=>true),array('class'=>'btn btn-success btn-xs')); ?> 
-										<?php echo $this->Html->link('Edit',array('controller'=>'users','action'=>'edit/'.$user['User']['id'],'admin'=>true),array('class'=>'btn btn-info btn-xs')); ?> 
-										<?php echo $this->Html->link('Delete',array('controller'=>'users','action'=>'delete/'.$user['User']['id'],'admin'=>true),array('class'=>'btn btn-danger btn-xs')); ?></td>
+										<td><?php echo $aagent['Aagent']['firstname']?> </td>
+										<td><?php echo $aagent['Aagent']['lastname']?> </td>
+										<td><?php echo $aagent['Aagent']['email_address'];?> </td>
+										<td><?php echo $aagent['Aagent']['phone']?></td>
+										<td><?php echo $aagent['Aagentgroup']['name']; ?></td>
+										<td><?php echo $this->Time->format('M j, Y',$aagent['Aagent']['modified']); ?></td>
+										<td><?php echo $this->Html->link('View',array("plugin"=>"iagents","controller"=>"aagents",'action'=>'view/'.$aagent['Aagent']['id'],'admin'=>true),array('class'=>'badge badge-success')); ?> 
+										<?php echo $this->Html->link('Edit',array("plugin"=>"iagents","controller"=>"aagents",'action'=>'edit/'.$aagent['Aagent']['id'],'admin'=>true),array('class'=>'badge badge-info')); ?> 
+										<?php echo $this->Html->link('Delete',array("plugin"=>"iagents","controller"=>"aagents",'action'=>'delete/'.$aagent['Aagent']['id'],'admin'=>true),array('class'=>'badge badge-danger')); ?></td>
 									</tr>
 									<?php } ?>					
 								</tbody>
 							</table>
-						</section><!-- unseen -->
+						
 						<p>
 						<?php
 						echo $this->Paginator->counter(array(
@@ -89,7 +80,7 @@
 							?>
 						</ul>
 					</div>
-				</section><!-- panel -->
+				</div><!-- panel -->
 			</div><!--/col-lg-12-->
 		</div>
 	</div>

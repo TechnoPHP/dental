@@ -46,9 +46,9 @@ class AagentsController extends IagentsAppController {
 	//$this->Auth->allow('register','confirm','logout','captcha','agentsdashboard','forgotpassword','resetpassword','changepassword','thankyou');
 
 		$this->set('masterclass','');
-		$this->set('announceclass','');
 		$this->set('aclclass','');
 		$this->set('usersclass','active');
+		$this->set('dashboardclass','');
 	}
 	
 	function captcha()	{
@@ -245,7 +245,7 @@ class AagentsController extends IagentsAppController {
  * @return void
  */
 	public function index() {	
-		$this->Agent->recursive = 0;
+		$this->Aagent->recursive = 0;
 		$conditions = array();
 		if(!empty($this->request->data)){
 			if(array_key_exists('group_id',$this->request->data['Aagent']) && !empty($this->request->data['Aagent']['group_id'])){
@@ -258,12 +258,11 @@ class AagentsController extends IagentsAppController {
 			'group'=>array(),
 			'limit' => 20
 		);
-		$this->set('users', $this->Paginator->paginate('Aagent'));
-		App::import('Model','Group');
-		$Group = new Group();
-		$groups = $Group->find("all",array('fields'=>array('Group.name','Group.id')));
-		$groups = Set::combine($groups, '{n}.Group.id','{n}.Group.name');
-		$this->set('groups', $groups);
+		$this->set('aagents', $this->Paginator->paginate('Aagent'));
+
+		$aagentgroups = $this->Aagent->Aagentgroup->find("all",array('fields'=>array('Aagentgroup.name','Aagentgroup.id')));
+		$aagentgroups = Set::combine($aagentgroups, '{n}.Aagentgroup.id','{n}.Aagentgroup.name');
+		$this->set('aagentgroups', $aagentgroups);
 	}
 	
 	public function profile($id = null){
@@ -624,7 +623,7 @@ class AagentsController extends IagentsAppController {
 			$this->request->data = $this->Aagent->find('first', $options);
 			//pr($this->request->data);exit;
 		}
-		$groups = $this->Aagent->Group->find('list');
+		$groups = $this->Aagent->Aagentgroup->find('list');
 		$this->set(compact('groups'));
 	}
 	
@@ -678,8 +677,8 @@ class AagentsController extends IagentsAppController {
 				exit;
 			}
 		}
-		$groups = $this->Aagent->Group->find("all",array('fields'=>array('Group.name','Group.id')));
-		$groups = Set::combine($groups, '{n}.Group.id','{n}.Group.name');
+		$groups = $this->Aagent->Aagentgroup->find("all",array('fields'=>array('Aagentgroup.name','Aagentgroup.id')));
+		$groups = Set::combine($groups, '{n}.Aagentgroup.id','{n}.Aagentgroup.name');
 		$this->set('groups', $groups);
 		
 		

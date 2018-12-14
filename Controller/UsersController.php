@@ -47,7 +47,7 @@ class UsersController extends AppController {
 		$this->Auth->logoutRedirect = array('plugin'=>null,'controller' => 'pages','action' => 'display','admin'=>false );
 		
 		$this->set('masterclass','');
-		$this->set('announceclass','');
+		$this->set('dashboardclass','');
 		$this->set('aclclass','');
 		$this->set('usersclass','active');
 		

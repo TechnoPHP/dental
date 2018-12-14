@@ -1,16 +1,15 @@
-<?php echo $this->element("admin/admin_sidebar"); ?>
+<?php echo $this->element("admins/sidebar"); ?>
 <!--main content start-->
 <section id="main-content">
 	<section class="wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<section class="panel">
-					<header class="panel-heading">
-					Create New User<div class="pull-right"><?php echo $this->Html->link("Back to list", array("controller"=>"users","action"=>"index","admin"=>true)); ?></div>
-					</header>
+				<div class="card">
+					<div class="card-header"><h6>Create New User<?php echo $this->Html->link("Back to list", array("plugin"=>"iagents","controller"=>"aagents","action"=>"index","admin"=>true),array("class"=>"btn btn-sm btn-outline-info float-right")); ?></h6>
+					</div>
 					<div class="row">
 						<div class="col-md-6">						
-							<div class="panel-body">
+							<div class="card-body">
 								<?php echo $this->Form->create('User', array("url"=>array("controller"=>"users","action"=>"create","admin"=>true),"role"=>"form","class"=>""));?>
 								<div class="row">
 									<div class="col-md-6">
@@ -81,7 +80,7 @@
 									<div class="col-md-6">
 										<div class="checkbox">
 											<label>
-											<?php echo $this->Form->checkbox('User.active',array('hiddenField' => false,'value'=>'Y')); ?>Make it active</label>
+											<?php echo $this->Form->checkbox('User.active',array('hiddenField' => false,'value'=>'Y')); ?>&nbsp;Make it active</label>
 										</div>
 									</div>									
 								</div>
@@ -95,7 +94,7 @@
 						</div>
 						<div class="col-md-6"> YET TO DECIDE FOR CONTENT</div>
 					</div>
-                </section>	
+                </div>	
 		
 			</div><!-- end of id welcome -->
 		</div><!--/#content.span10-->

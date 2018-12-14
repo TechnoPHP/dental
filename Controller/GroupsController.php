@@ -26,9 +26,10 @@ class GroupsController extends AppController {
 		);
 
 		$this->set('masterclass','');
-		$this->set('announceclass','');
+		$this->set('dashboardclass','');
 		$this->set('aclclass','');
 		$this->set('usersclass','');
+		$this->set('groupsclass','active');
 	}
 	
 /**

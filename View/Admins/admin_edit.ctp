@@ -4,20 +4,19 @@
 	<section class="wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<section class="panel">
-					<header class="panel-heading">
-					Create New Admin user<div class="pull-right"><?php echo $this->Html->link("Back to list", array("plugin"=>false,"controller"=>"admins","action"=>"index","admin"=>true)); ?></div>
+				<div class="card">
+					<header class="card-header"><h6>Update Administrator<?php echo $this->Html->link("Back to list", array("plugin"=>false,"controller"=>"admins","action"=>"index","admin"=>true),array("class"=>"btn btn-sm btn-outline-info float-right")); ?></h6>
 					</header>
 					<div class="row">
 						<div class="col-md-6">						
-							<div class="panel-body">
+							<div class="card-body">
 								<?php echo $this->Form->create('Admin', array("url"=>array("controller"=>"admins","action"=>"edit","admin"=>true),"role"=>"form","class"=>""));?>
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
 										<label for="firstname">First Name</label>
 											<?php echo $this->Form->text('Admin.firstname',array("class"=>"form-control","placeholder"=>"First name")); 
-											echo $this->Form->text('Admin.id');?>
+											echo $this->Form->hidden('Admin.id');?>
 										</div>
 									</div>
 									
@@ -68,7 +67,7 @@
 									<div class="col-md-6">
 										<div class="checkbox">
 											<label>
-											<?php echo $this->Form->checkbox('Admin.active',array('hiddenField' => false,'value'=>'Y')); ?>Make it active</label>
+											<?php echo $this->Form->checkbox('Admin.active',array('hiddenField' => false,'value'=>'Y')); ?>&nbsp;Make it active</label>
 										</div>
 									</div>									
 								</div>
@@ -82,7 +81,7 @@
 						</div>
 						<div class="col-md-6"> YET TO DECIDE FOR CONTENT</div>
 					</div>
-                </section>	
+                </div>	
 		
 			</div><!-- end of id welcome -->
 		</div><!--/#content.span10-->

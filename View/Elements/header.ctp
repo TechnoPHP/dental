@@ -88,7 +88,7 @@
 								</ul>									
 							</li>
 							<li><?php echo $this->Html->link("Admins",array('plugin'=>false,'controller'=>'admins','action'=>'login','admin'=>true));?></li>
-							<li><?php echo $this->Html->link("Inquiries",array('plugin'=>'appointments','controller'=>'appointments','action'=>'index','admin'=>false));?>
+							<li><?php echo $this->Html->link("Inquiries",array('plugin'=>'','controller'=>'inquiries','action'=>'index','admin'=>false));?>
 							</li>
 						</ul>
 					</div>

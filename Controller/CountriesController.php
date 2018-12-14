@@ -8,8 +8,9 @@ class CountriesController extends AppController {
 		parent::beforeFilter();
 	//	$this->Auth->allow('admin_index');
 		$this->set('masterclass','active');
-		$this->set('announceclass','');
+		$this->set('dashboardclass','');
 		$this->set('usersclass','');
+		$this->set('groupsclass','');
 		$this->set('aclclass','');
 		
 		$this->Auth->authorize = array(
@@ -56,12 +57,7 @@ class CountriesController extends AppController {
 			}
 			$this->redirect(array('controller' => 'countries','action' =>'index','admin'=>true));
 		}
-		App::import('Model','Zone');
-		$zones = new Zone();
-		$data = $zones->find('list');// Extra parameters added
-		$this->set('zones', $data);//it is handled in index.ctp
 		
-		$this->set('masterclass','');
 	}
 	
 	public function edit(){

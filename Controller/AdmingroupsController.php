@@ -23,9 +23,10 @@ class AdmingroupsController extends AppController {
 		//$this->Auth->allow();
 		$this->layout='admin';
 		$this->set('masterclass','');
-		$this->set('announceclass','');
+		$this->set('dashboardclass','');
 		$this->set('aclclass','');
 		$this->set('usersclass','');
+		$this->set('groupsclass','active');
 		
 		$this->Auth->authorize = array(
 			AuthComponent::ALL => array('actionPath' => 'controllers/', 'userModel' => 'Admin'),

@@ -19,8 +19,8 @@ class TasksController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow();
 		$this->set('masterclass','');
-		$this->set('masterclass','');
-		$this->set('announceclass','');
+		$this->set('dashboardclass','');
+		$this->set('groupsclass','');
 		$this->set('aclclass','');
 		$this->set('usersclass','');
 	}

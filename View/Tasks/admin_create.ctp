@@ -5,13 +5,12 @@
 	<section class="wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<section class="panel">
-					<header class="panel-heading">
-					Create New Work Category<div class="pull-right"><?php echo $this->Html->link("Back to list", array("controller"=>"tasks","action"=>"index","admin"=>true)); ?></div>
-					</header>
+				<div class="card">
+					<div class="card-header"><h6>Create New Task<?php echo $this->Html->link("Back to list", array("controller"=>"tasks","action"=>"index","admin"=>true),array("class"=>"btn btn-sm btn-outline-info float-right")); ?></h6>
+					</div>
 					<div class="row">
-						<div class="col-md-12">						
-							<div class="panel-body">
+						<div class="col-md-6">						
+							<div class="card-body">
 							<?php echo $this->Form->create('Task', array("url"=>array("controller"=>"tasks",'action' => 'create','admin'=>true)));	?>
 							
 								<div class="row">
@@ -34,7 +33,7 @@
 									<div class="col-md-12">
 										<div class="form-group">
 										<label for="categoryname">Short Description</label>
-											<?php echo $this->Form->text('Task.description',array("class"=>"form-control","placeholder"=>"Short Description")); ?>
+											<?php echo $this->Form->textarea('Task.description',array("class"=>"form-control","placeholder"=>"Short Description","rows"=>"3")); ?>
 										</div>
 									</div>
 								</div>
@@ -48,14 +47,16 @@
 								
 									<div class="col-md-3">
 										<div class="form-group">
-										<input name="" type="submit" value="Create" class="btn btn-success" />
+										<input name="" type="submit" value="Create" class="btn btn-sm btn-success" />
 									</div>
 								</div>
 							<?php echo $this->Form->end(); ?>							
 							</div>
 						</div>
+						<div class="col-md-6">
+						</div>
 					</div>
-				</section>
+				</div>
 			</div><!-- end of id welcome -->
 		</div><!--/#content.span10-->
 	</section>
